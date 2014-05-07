@@ -135,13 +135,33 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "public/js/other/gafront.js",
+			"settings":
+			{
+				"buffer_size": 15208,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/js/controllers/GaController.js",
+			"settings":
+			{
+				"buffer_size": 214,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 81.0,
+		"height": 58.0,
 		"selected_items":
 		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
 			[
 				"form",
 				"Format: Javascript"
@@ -167,15 +187,11 @@
 				"HTMLBeautify"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
-			],
-			[
 				"insta",
 				"Package Control: Install Package"
 			]
 		],
-		"width": 416.0
+		"width": 512.0
 	},
 	"console":
 	{
@@ -196,8 +212,16 @@
 	},
 	"file_history":
 	[
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/state.js",
+		"/C/Users/quadramma/qmGIT/GAIluminacion/public/index.html",
 		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/index.php",
+		"/C/Users/quadramma/qmGIT/GAIluminacion/public/views/ga.layout.html",
+		"/C/Users/quadramma/qmGIT/GAIluminacion/public/js/controllers/GaController.js",
+		"/C/Users/quadramma/qmGIT/GAIluminacion/public/js/config/appRoutes.js",
+		"/C/Users/quadramma/qmGIT/GAIluminacion/public/js/config/app.js",
+		"/C/Users/quadramma/qmGIT/GAIluminacion/bower.json",
+		"/C/Users/quadramma/qmGIT/GAIluminacion/.gitignore",
+		"/C/Users/quadramma/qmGIT/GAIluminacion/.bowerrc",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/state.js",
 		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/gafront.js",
 		"/C/Users/quadramma/qmGIT/NMS/.bowerrc",
 		"/C/Users/quadramma/Google Drive/quadramma/neutrogena/index.html",
@@ -315,15 +339,7 @@
 		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/dynamicheaderfooter.js",
 		"/C/Users/quadramma/Downloads/_Layout.cshtml",
 		"/C/Users/quadramma/Google Drive/quadramma/ga/admin/js/dynamicheaderfooter.js",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/products.php",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/admin/footer.php",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/admin/header.php",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/admin/pages/products.html",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/multiupload.js",
-		"/C/Users/quadramma/Downloads/_ClarityBase.cshtml",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/admin/index.php",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/admin/js/multiupload.js",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/admin/index.html"
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/products.php"
 	],
 	"find":
 	{
@@ -341,6 +357,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"bindNavMenuLinkActiveOnClick",
+			"SET ",
 			"GAHelper",
 			"active",
 			"getRelatedItems",
@@ -494,8 +512,68 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "public/js/other/gafront.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15208,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7899,
+								7899
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "public/js/controllers/GaController.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 214,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								152,
+								152
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -505,7 +583,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 35.0
 	},
 	"layout":
 	{
@@ -571,7 +649,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 217.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

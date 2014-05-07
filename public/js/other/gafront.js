@@ -304,32 +304,6 @@ jQuery(window).load(function() {
 
 
 
-/*-----------------------------------------------------------------------------------*/
-/*  NICESCROLL
-/*-----------------------------------------------------------------------------------*/
-/*
-jQuery(document).ready(function() {
-    jQuery("body").niceScroll({
-        cursorcolor: "#333",
-        cursorborder: "0px",
-        cursorwidth: "8px",
-        zindex: "9999",
-        scrollspeed: 100
-    });
-});
-*/
-
-/*FIXES*/
-$(document).on("ready", function() {
-  setTimeout(function() {
-    $("body").css({
-      "margin-bottom": "0px"
-    });
-    //console.log("SET 0");
-  }, 4000);
-})
-
-
 
 /*-----------------------------------------------------------------------------------*/
 /*  MENU
@@ -349,26 +323,28 @@ GAHelper.deselectNavMenuLinks = function() {
 
 
 
-  function bindNavMenuLinkActiveOnClick() {
-    var $navMenuLinks = $('.navmenu').find('li'); //.scroll_btn a
-    $navMenuLinks.each(function() {
-      // console.log("binding " + $(this).attr("class"));
+function bindNavMenuLinkActiveOnClick(debug) {
 
-      var $li = $(this);
-      var $a = $(this).find("a");
-      $a.on("click", function() {
-        //console.log("CLICK!");
-        GAHelper.deselectNavMenuLinks();
-        $li.addClass('active');
-        // console.log("SELECTED " + $a.html());
-      });
+  var $navMenuLinks = $('.navmenu').find('li'); //.scroll_btn a
+  console.log("bindNavMenuLinkActiveOnClick: " + $navMenuLinks.length);
+  $navMenuLinks.each(function() {
+    // console.log("binding " + $(this).attr("class"));
 
+    var $li = $(this);
+    var $a = $(this).find("a");
+    $a.on("click", function() {
+      //console.log("CLICK!");
+      GAHelper.deselectNavMenuLinks();
+      $li.addClass('active');
+      if (debug) console.log("SELECTED " + $a.html());
     });
-  }
-  
+
+  });
+}
 
 
-$(function() {
+
+function bindSmothScroll() {
   $('a[href*=#]:not([href=#])').click(function() {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       var target = $(this.hash);
@@ -386,7 +362,7 @@ $(function() {
       }
     }
   });
-});
+}
 
 
 
@@ -412,8 +388,17 @@ function calculateScroll() {
   })
 };
 
-jQuery(document).ready(function() {
-  //MobileMenu
+
+function bindReadyBehaviours() {
+
+  setTimeout(function() {
+    $("body").css({
+      "margin-bottom": "0px"
+    });
+    //console.log("SET 0");
+  }, 4000);
+
+
   if ($(window).width() < 768) {
     jQuery('.menu_block .container').prepend('<a href="javascript:void(0)" class="menu_toggler"><span class="fa fa-align-justify"></span></a>');
     jQuery('header .navmenu').hide();
@@ -421,39 +406,89 @@ jQuery(document).ready(function() {
       jQuery('header .navmenu').slideToggle(300);
     });
   }
+  /* Superfish */
+  jQuery(document).ready(function() {
+    if ($(window).width() >= 768) {
+      $('.navmenu ul').superfish();
+    }
+  });
 
 
-  /*
-  // if single_page
-  if (jQuery("#page").hasClass("single_page")) {} else {
-    $(window).scroll(function(event) {
-      calculateScroll();
-    });
-    $('.navmenu ul li a, .mobile_menu ul li a, .btn_down').click(function() {
-      $('html, body').animate({
-        scrollTop: $(this.hash).offset().top - 80
-      }, 1000);
-      return false;
-    });
-  };
+  //TEAM SLIDER
+  var owl = $(".owl-demo.team_slider");
+  owl.owlCarousel({
+    navigation: true,
+    pagination: false,
+    items: 3,
+    itemsDesktop: [600, 2]
+  });
 
-  */
-});
+  jQuery('.owl-controls').addClass('container');
 
+  //TESTIMONIALS SLIDER
+  var owl = $(".owl-demo.testim_slider");
 
-/* Superfish */
-jQuery(document).ready(function() {
-  if ($(window).width() >= 768) {
-    $('.navmenu ul').superfish();
-  }
-});
+  owl.owlCarousel({
+    itemsCustom: [
+      [0, 1]
+    ],
+    navigation: false,
+    pagination: true,
+    items: 1
+  });
 
 
+  jQuery('.owl-controls').addClass('container');
 
+
+
+  /*-----------------------------------------------------------------------------------*/
+  /*  IFRAME TRANSPARENT
 /*-----------------------------------------------------------------------------------*/
-/*  FLEXSLIDER
-/*-----------------------------------------------------------------------------------*/
-jQuery(window).load(function() {
+  $("iframe").each(function() {
+    var ifr_source = $(this).attr('src');
+    var wmode = "wmode=transparent";
+    if (ifr_source.indexOf('?') != -1) {
+      var getQString = ifr_source.split('?');
+      var oldString = getQString[1];
+      var newString = getQString[0];
+      $(this).attr('src', newString + '?' + wmode + '&' + oldString);
+    } else $(this).attr('src', ifr_source + '?' + wmode);
+  });
+
+
+  var owl = $(".owl-demo.projects_slider"); //WORKS SLIDER
+  owl.owlCarousel({
+    navigation: false,
+    pagination: false,
+    responsive: true,
+    items: 4,
+    itemsDesktop: [1000, 4],
+    itemsDesktop: [600, 3]
+  });
+
+  //PrettyPhoto
+  $("a[rel^='prettyPhoto']").prettyPhoto();
+  //BlackAndWhite
+  $('.client_img').BlackAndWhite({
+    hoverEffect: true, // default true
+    // set the path to BnWWorker.js for a superfast implementation
+    webworkerPath: false,
+    // for the images with a fluid width and height 
+    responsive: true,
+    // to invert the hover effect
+    invertHoverEffect: false,
+    // this option works only on the modern browsers ( on IE lower than 9 it remains always 1)
+    intensity: 1,
+    speed: { //this property could also be just speed: value for both fadeIn and fadeOut
+      fadeIn: 300, // 200ms for fadeIn animations
+      fadeOut: 300 // 800ms for fadeOut animations
+    },
+    onImageReady: function(img) {
+      // this callback gets executed anytime an image is converted
+    }
+  });
+
   //Top Slider
   $('.flexslider.top_slider').flexslider({
     animation: "fade",
@@ -482,94 +517,22 @@ jQuery(window).load(function() {
   jQuery('.flexslider.top_slider .flex-direction-nav').addClass('container');
 
 
-  /*
-  //Vision Slider
-  $('.flexslider.portfolio_single_slider').flexslider({
-    animation: "fade",
-    controlNav: true,
-    directionNav: true,
-    animationLoop: false,
-    slideshow: false,
-  });
-*/
+} //END BEHAVIOURs
 
 
-});
 
 jQuery(window).resize(function() {
   homeHeight();
-
 });
 
 jQuery(document).ready(function() {
   homeHeight();
-
 });
 
 function homeHeight() {
   var wh = jQuery(window).height() - 80;
   jQuery('.top_slider, .top_slider .slides li').css('height', wh);
 }
-
-
-
-/*-----------------------------------------------------------------------------------*/
-/*  OWLCAROUSEL
-/*-----------------------------------------------------------------------------------*/
-$(document).ready(function() {
-
-
-
-  //TEAM SLIDER
-  var owl = $(".owl-demo.team_slider");
-  owl.owlCarousel({
-    navigation: true,
-    pagination: false,
-    items: 3,
-    itemsDesktop: [600, 2]
-  });
-
-
-
-  jQuery('.owl-controls').addClass('container');
-
-
-  //TESTIMONIALS SLIDER
-  var owl = $(".owl-demo.testim_slider");
-
-  owl.owlCarousel({
-    itemsCustom: [
-      [0, 1]
-    ],
-    navigation: false,
-    pagination: true,
-    items: 1
-  });
-
-
-
-  jQuery('.owl-controls').addClass('container');
-
-
-});
-
-
-
-/*-----------------------------------------------------------------------------------*/
-/*  IFRAME TRANSPARENT
-/*-----------------------------------------------------------------------------------*/
-jQuery(document).ready(function() {
-  $("iframe").each(function() {
-    var ifr_source = $(this).attr('src');
-    var wmode = "wmode=transparent";
-    if (ifr_source.indexOf('?') != -1) {
-      var getQString = ifr_source.split('?');
-      var oldString = getQString[1];
-      var newString = getQString[0];
-      $(this).attr('src', newString + '?' + wmode + '&' + oldString);
-    } else $(this).attr('src', ifr_source + '?' + wmode);
-  });
-});
 
 
 
@@ -593,7 +556,6 @@ function blogHeight() {
 }
 
 
-
 /*-----------------------------------------------------------------------------------*/
 /*  FOOTER HEIGHT
 /*-----------------------------------------------------------------------------------*/
@@ -611,76 +573,4 @@ function contactHeight() {
     //jQuery('#contacts').css('min-height', wh);
   }
 
-
 }
-
-
-
-/*-----------------------------------------------------------------------------------*/
-/*  FOOTER MAP
-/*-----------------------------------------------------------------------------------*/
-jQuery(document).ready(function() {
-  jQuery('.map_show').click(function() {
-    jQuery('#map').addClass('showed');
-  });
-
-  jQuery('.map_hide').click(function() {
-    jQuery('#map').removeClass('showed');
-  });
-});
-
-
-
-$(function() {
-  //console.clear();
-  //GAFront.loadProducts(JSON.parse("<?=$jsonProductsCollection?>"));
-
-  $(document).on("ready", function() {
-
-    var owl = $(".owl-demo.projects_slider"); //WORKS SLIDER
-    owl.owlCarousel({
-      navigation: false,
-      pagination: false,
-      responsive: true,
-      items: 4,
-      itemsDesktop: [1000, 4],
-      itemsDesktop: [600, 3]
-    });
-
-  });
-});
-//PrettyPhoto
-jQuery(document).ready(function() {
-  $("a[rel^='prettyPhoto']").prettyPhoto();
-});
-//BlackAndWhite
-$(window).load(function() {
-  $('.client_img').BlackAndWhite({
-    hoverEffect: true, // default true
-    // set the path to BnWWorker.js for a superfast implementation
-    webworkerPath: false,
-    // for the images with a fluid width and height 
-    responsive: true,
-    // to invert the hover effect
-    invertHoverEffect: false,
-    // this option works only on the modern browsers ( on IE lower than 9 it remains always 1)
-    intensity: 1,
-    speed: { //this property could also be just speed: value for both fadeIn and fadeOut
-      fadeIn: 300, // 200ms for fadeIn animations
-      fadeOut: 300 // 800ms for fadeOut animations
-    },
-    onImageReady: function(img) {
-      // this callback gets executed anytime an image is converted
-    }
-  });
-});
-
-
-
-
-$(function(){
-
-bindNavMenuLinkActiveOnClick();
-
-
-});
