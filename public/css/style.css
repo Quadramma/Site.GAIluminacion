@@ -127,22 +127,22 @@ a:hover, a:focus {text-decoration:none; color:#333;}
 }
 
 .toggleDisplay {		
-    background: url('../_img/arrowDown.png');
+    background: url('../images/arrowDown.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 }				
 .toggleDisplay:hover {		
-	background: url('../_img/arrowDown_hover.png');
+	background: url('../images/arrowDown_hover.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 .toggleDisplay-toggled {		
-	background: url('../_img/arrowUp.png') !important;
+	background: url('../images/arrowUp.png') !important;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 .toggleDisplay-toggled:hover {		
-	background: url('../_img/arrowUp_hover.png') !important;
+	background: url('../images/arrowUp_hover.png') !important;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -590,7 +590,7 @@ header {
 /*	FILOSOFY
 /*-----------------------------------------------------------------------------------*/
 #filosofy {
-	background: url(../_img/about_background.jpg);
+	background: url(../images/about_background.jpg);
 	min-height: 626px;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -616,14 +616,14 @@ header {
 /*	LOCALES
 /*-----------------------------------------------------------------------------------*/
 #local-caballito {
-	background: url(../_img/local_caballito.jpg);
+	background: url(../images/local_caballito.jpg);
 	min-height: 495px;
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding-top: 60px;
 }
 #local-palermo {
-	background: url(../_img/local_palermo.jpg);
+	background: url(../images/local_palermo.jpg);
 	min-height: 495px;
 	background-repeat: no-repeat;
 	background-size: cover;
