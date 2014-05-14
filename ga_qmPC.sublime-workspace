@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"file",
+				"fileName"
+			],
+			[
 				"desta",
 				"destacados"
 			],
@@ -136,18 +140,18 @@
 	"buffers":
 	[
 		{
-			"file": "public/js/other/gafront.js",
+			"file": "/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/index.php",
 			"settings":
 			{
-				"buffer_size": 15208,
+				"buffer_size": 1178,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "public/js/controllers/GaController.js",
+			"file": "/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/projects.php",
 			"settings":
 			{
-				"buffer_size": 214,
+				"buffer_size": 1321,
 				"line_ending": "Windows"
 			}
 		}
@@ -155,9 +159,13 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 58.0,
+		"height": 265.0,
 		"selected_items":
 		[
+			[
+				"for",
+				"Format: Javascript"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -191,7 +199,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 512.0
+		"width": 416.0
 	},
 	"console":
 	{
@@ -212,29 +220,72 @@
 	},
 	"file_history":
 	[
-		"/C/Users/quadramma/qmGIT/GAIluminacion/public/index.html",
+		"/C/Users/quadramma/qmGIT/NMS/public/views/nodes/category/category.items.html",
+		"/C/Users/quadramma/qmGIT/NMS/public/views/nodes/product/product.items.html",
+		"/C/Users/quadramma/qmGIT/NMS/public/views/nodes/project/project.items.html",
+		"/C/Users/quadramma/qmGIT/NMS/public/js/controllers/ga/CategoryController.js",
+		"/C/Users/quadramma/qmGIT/NMS/public/js/routes/ga/appRoutes.category.js",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/CategoryController.js",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/ga.header.html",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/ga.categories 2.html",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/project.items.html",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/product.items.html",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/appRoutes.category 2.js",
+		"/C/Users/quadramma/qmGIT/NMS/public/js/routes/ga/appRoutes.ga.js",
+		"/C/Users/quadramma/qmGIT/NMS/public/css/ga.style.css",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/file.php",
+		"/C/Users/quadramma/qmGIT/NMS/public/views/layouts/ga/ga.uploads.html",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/contact 2.php",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/index 3.php",
+		"/C/Users/quadramma/qmGIT/NMS/public/js/controllers/ga/ConfigController.js",
+		"/C/Users/quadramma/qmGIT/NMS/public/js/config/app.js",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/upload.php",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/jlm.js",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/gaModule.js",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/index 2.php",
+		"/C/Users/quadramma/qmGIT/NMS/public/views/layouts/ga/ga.home.html",
+		"/C/Users/quadramma/qmGIT/NMS/public/views/layouts/ga/ga.header.html",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/GaController.js",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/gafront.js",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/index.html",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/head.php",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/header.php",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/collection.php",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/external_navbar.php",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/project_body.php",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/projects.php",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/filosofy.php",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/style.css",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/contact.php",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/navbar.php",
 		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/index.php",
-		"/C/Users/quadramma/qmGIT/GAIluminacion/public/views/ga.layout.html",
 		"/C/Users/quadramma/qmGIT/GAIluminacion/public/js/controllers/GaController.js",
+		"/C/Users/quadramma/qmGIT/GAIluminacion/public/js/other/gafront.js",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/ga.categories.html",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/category.items.html",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/category.items2.html",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/appRoutes.category.js",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/category.edit.html",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/category.create.html",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/prjcategory.items.html",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/prjcategory.create.html",
+		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/prjcategory.edit.html",
+		"/C/Users/quadramma/qmGIT/GAIluminacion/public/index.html",
+		"/C/Users/quadramma/qmGIT/GAIluminacion/public/views/ga.layout.html",
 		"/C/Users/quadramma/qmGIT/GAIluminacion/public/js/config/appRoutes.js",
 		"/C/Users/quadramma/qmGIT/GAIluminacion/public/js/config/app.js",
 		"/C/Users/quadramma/qmGIT/GAIluminacion/bower.json",
 		"/C/Users/quadramma/qmGIT/GAIluminacion/.gitignore",
 		"/C/Users/quadramma/qmGIT/GAIluminacion/.bowerrc",
 		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/state.js",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/gafront.js",
 		"/C/Users/quadramma/qmGIT/NMS/.bowerrc",
 		"/C/Users/quadramma/Google Drive/quadramma/neutrogena/index.html",
 		"/C/Users/quadramma/Google Drive/quadramma/neutrogena/css/style.css",
 		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/tmpl_body_ga_main.html",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/gaModule.js",
 		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/category.php",
 		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/destacado.php",
 		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/gapi.php",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/index 2.php",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/jlm.js",
 		"/C/Users/quadramma/qmGIT/NMS/public/index.html",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/index 3.php",
 		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/group.php",
 		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/profile.php",
 		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/config.php",
@@ -244,7 +295,6 @@
 		"/C/Users/quadramma/SinglePageAppNodeAngular/public/index.html",
 		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/index 5.php",
 		"/C/Users/quadramma/qmGIT/scrollToggle/index.html",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/style.css",
 		"/C/Users/quadramma/SinglePageAppNodeAngular/package.json",
 		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/ga 2.php",
 		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/gapi 2.php",
@@ -289,7 +339,6 @@
 		"/C/Users/quadramma/Google Drive/quadramma/moooi/css/css_PvfEweoJ1JzgUywuyf5EO4MlBvHQon2jlTCZfkI6_M0.css",
 		"/C/Users/quadramma/Google Drive/quadramma/moooi/css/css_AFNnEjvDR5CvJkNKTljzBrlXpHTR2BYWPNnWbH1OEx4.css",
 		"/C/Users/quadramma/Google Drive/quadramma/moooi/css/css_Vts0XjaQXkIwBk9HNAoJwrvmmE9lw6S9oxqJuhh0OB0.css",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/index.html",
 		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/api 2.php",
 		"/C/Users/quadramma/Google Drive/quadramma/colpermin/index.html",
 		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/productCRUD.php",
@@ -298,52 +347,11 @@
 		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/db.php",
 		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/uploader.php",
 		"/C/Users/quadramma/Desktop/Neutrogena/index.html",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/uploader",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/files.php",
-		"/C/Users/QUADRA~1/AppData/Local/Temp/Rar$DRa0.490/Directory Upload/index.php",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/ga.js",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/categoryCRUD.php",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/ga 2.js",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/style 2.css",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/pagina/_site/index.php",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/pagina/_site/js/ga.js",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/listtest/index.html",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/listtest/css/style.css",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/pagina/_site/css/gumby.css",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/pagina/_site/js/gumby.min.js",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-2/config 2.php",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-2/config.php",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-2/style 2.css",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-2/index.php",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-2/index 2.php",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-2/index 3.php",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-2/project.php",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-2/style.css",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-2/admin.php",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-2/.htaccess",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/pagina/site/js/myscript.js",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/pagina/site/css/style.css",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/white/image_slider/index.html",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/pagina/site/index.html",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/pagina/site/css/_fonts/dinnextltpro-regular.css",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/pagina/site/css/_fonts/dinnextltpro-light.css",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/pagina/site/css/_fonts/cabourglight.css",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/pagina/site/css/_fonts/dinnextltpro-medium.css",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/pagina/index.php",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/pagina/admin/js/multiupload.js",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/pagina/admin/index.php",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/pagina/admin/js/dynamicheaderfooter.js",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/pagina/medoo.min.php",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-2/.htaccess 2",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/pagina/.htaccess",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/dynamicheaderfooter.js",
-		"/C/Users/quadramma/Downloads/_Layout.cshtml",
-		"/C/Users/quadramma/Google Drive/quadramma/ga/admin/js/dynamicheaderfooter.js",
-		"/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/products.php"
+		"/C/Users/quadramma/Google Drive/quadramma/ga/uploader"
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 27.0
 	},
 	"find_in_files":
 	{
@@ -357,6 +365,15 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"editItem",
+			"form",
+			"collection",
+			".item",
+			"work_img",
+			"#projects",
+			"filosofy",
+			"collection",
+			"prjcategory",
 			"bindNavMenuLinkActiveOnClick",
 			"SET ",
 			"GAHelper",
@@ -475,13 +492,7 @@
 			"_uploader",
 			"buttonUpload",
 			"submitHandler",
-			".sidebar",
-			"class=\"panel left\"",
-			"#sidebar",
-			"$",
-			"img",
-			"h1 {",
-			"s3-text1"
+			".sidebar"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -489,6 +500,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"#proyectos",
+			"filosofia",
+			"category_projects",
 			"_category_id",
 			"ga-coll",
 			"",
@@ -512,66 +526,64 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "public/js/other/gafront.js",
+					"file": "/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/index.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15208,
+						"buffer_size": 1178,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7899,
-								7899
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.x": -0.0,
+						"translation.y": 83.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "public/js/controllers/GaController.js",
+					"file": "/C/Users/quadramma/AppData/Local/Temp/fz3temp-1/projects.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 214,
+						"buffer_size": 1321,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								152,
-								152
+								85,
+								85
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -649,7 +661,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 217.0,
+	"side_bar_width": 349.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

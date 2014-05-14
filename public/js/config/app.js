@@ -1,6 +1,7 @@
-var GApp = angular.module("GApp", [
-    "GaCtrl",
-    "appRoutes"
+GApp = angular.module("GApp", [
+    //"CollectionServ"
+    //"GaCtrl"
+    //,"appRoutes"
 ]);
 
 GApp.config(['$httpProvider', '$sceDelegateProvider',
@@ -10,4 +11,3 @@ GApp.config(['$httpProvider', '$sceDelegateProvider',
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }
 ]);
-
