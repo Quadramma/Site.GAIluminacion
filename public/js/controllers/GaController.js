@@ -5,7 +5,32 @@ angular.module('GApp', [
 angular.module('GApp.controllers', []).
 controller('GaController', function($scope) {
     //console.log("GaController READY");
+
+    $scope.clickLogin = function(){
+        var pass = $(".form-signin input").val();
+        if(pass == "123456"){
+            window.location.href = "sample.pdf";
+        }else{
+            $(".form-signin p").fadeIn();
+            setTimeout(function(){
+                $(".form-signin p").fadeOut();
+            },5000);
+        }
+    };
+    $scope.hideLogin=function(){
+        $("#descargasModal").fadeOut();
+    }
+
+    $scope.clickDescargas = function() {
+        var name = "descargas"
+        window.history.pushState({}, name, name);
+        $("title").html(name + " | GA");
+        $("#descargasModal").fadeIn("slow");
+    };
+
+
     $scope.pushState = function(name) {
+        $scope.hideLogin();
         window.history.pushState({}, name, name);
         $("title").html(name + " | GA");
     }
@@ -54,7 +79,7 @@ controller('GaController', function($scope) {
         $scope.$apply(function() {
             var owl = $(".owl-demo.projects_slider"); //WORKS SLIDER
             owl.owlCarousel({
-                navigation: false,
+                navigation: true,
                 pagination: false,
                 responsive: true,
                 items: 4,
@@ -65,6 +90,12 @@ controller('GaController', function($scope) {
         //PrettyPhoto
         $("a[rel^='prettyPhoto']").prettyPhoto();
     }, 1000);
+
+    $scope.slide1 = db.hometexts.slide1;
+    $scope.slide2 = db.hometexts.slide2;
+    $scope.slide3 = db.hometexts.slide3;
+
+
 
     var $path = "backend/api/uploads/home_slides/";
     var homeSlide1 = db.homeslides.slide1 || "slide1_bg.jpg";
@@ -101,20 +132,29 @@ controller('GaController', function($scope) {
     }
 
 
+    jQuery(window).load(function() {
+        setTimeout(function() {
 
-    setTimeout(function() {
-        //SCROLL TO
-        if(db.scrollTo == "") return;
-        var target = $("#"+db.scrollTo); 
-        if (target.length) {
-            $('html,body').animate({
-                scrollTop: target.offset().top
-            }, 1000, function() {
-                //FINISH
-            });
-            return false;
-        }
-    }, 8000);
+            //console.log("scroll " + db.scrollTo);
+
+            //SCROLL TO
+            if (db.scrollTo == "") return;
+            var target = $("#" + db.scrollTo);
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top
+                }, 1000, function() {
+                    //FINISH
+                });
+                return false;
+            }
+        }, 800);
+    });
+
+
+
+
+    //console.info(db.product);
 
 });
 
@@ -148,8 +188,17 @@ function ProductSingleSlider() {
 function SingleProductController($scope) {
     console.log("SingleProductController");
 
+
+
     if (db.product) {
+
         $scope.item = db.product[0];
+
+
+        var name = 'producto/' + $scope.item._id;
+        window.history.pushState({}, name, name);
+
+
         var cuts = $scope.item.slider_urls.toString().split("$$");
         $scope.slides = cuts;
         console.log($scope.slides);
@@ -164,6 +213,10 @@ function SingleProjectController($scope) {
 
     if (db.project) {
         $scope.item = db.project[0];
+
+        var name = 'proyecto/' + $scope.item._id;
+        window.history.pushState({}, name, name);
+
         var cuts = $scope.item.slider_urls.toString().split("$$");
         $scope.slides = cuts;
         console.log($scope.slides);
@@ -174,7 +227,16 @@ function SingleProjectController($scope) {
 }
 
 function ContactController($scope) {
+
     console.log("ContactController");
+
+
+    $scope.clickDestacado = function(item) {
+        console.log("clickDestacado");
+        console.info(item);
+        $("#formProduct").find("input").val(item._id);
+        $("#formProduct").submit();
+    }
 
     if (!db.destacados) {
         console.log("Destacados: Error interno");

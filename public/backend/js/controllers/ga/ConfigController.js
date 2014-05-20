@@ -28,7 +28,7 @@ function GaUploadsController($scope, AppConfig) {
         console.log("GaUploadsController.upload");
         if ($scope.file == null) {
             //console.log("GaUploadsController.upload file empty nothing happens");
-            $scope.message("Warning: No se detecto ninguna imagen para subir",3000);
+            $scope.message("Warning: No se detecto ninguna imagen para subir", 3000);
         } else {
             var fd = new FormData();
             fd.append("file", $scope.file);
@@ -37,10 +37,10 @@ function GaUploadsController($scope, AppConfig) {
             send(resFunction, fd, function(res) {
                 console.log("GaUploadsController upload response");
                 console.log(res);
-                if(res.ok){
-                    $scope.message("Imagen "+res.fileName+" cargada.",2000);
-                }else{
-                    $scope.message("Error: "+res.saveResponse.error,10000);
+                if (res.ok) {
+                    $scope.message("Imagen " + res.fileName + " cargada.", 2000);
+                } else {
+                    $scope.message("Error: " + res.saveResponse.error, 10000);
                 }
             })
 
@@ -136,6 +136,7 @@ function ConfigSliderController($scope, $state, GAFile, AppConfig) {
         $scope.slide3 = $('#slide3Dropdown').find("input").val();
     }
 
+    //SLIDES SELECTED GET
     GAFile.getHomeSlides({}, {
         slide1: $scope.slide1 || "",
         slide2: $scope.slide2 || "",
@@ -149,12 +150,10 @@ function ConfigSliderController($scope, $state, GAFile, AppConfig) {
         $('#slide3Dropdown').find("input").val($scope.slide3);
     });
 
+    //SLIDES DISPONIBLES GET
     GAFile.getAvailableHomeSlides(function(data) {
-
         console.log("ConfigSliderController.getAvailableHomeSlides");
-
         $scope.availablesSlides = data.files;
-
         setTimeout(function() {
             $scope.$apply(function(scope) {
                 setTimeout(function() {
@@ -167,26 +166,58 @@ function ConfigSliderController($scope, $state, GAFile, AppConfig) {
 
     });
 
+
+    //TEXTOS GET
+    GAFile.getHomeText({}, function(data) {
+        console.log(data);
+        $scope.slide1Title = data.files.slide1.title;
+        $scope.slide1Text = data.files.slide1.text;
+        $scope.slide2Title = data.files.slide2.title;
+        $scope.slide2Text = data.files.slide2.text;
+        $scope.slide3Title = data.files.slide3.title;
+        $scope.slide3Text = data.files.slide3.text;
+    });
+
     $scope.save = function() {
-        console.log("ConfigSliderController.save");
+        console.log("ConfigSliderController.save.homeslides");
         GAFile.saveHomeSlides({}, {
             slide1: $scope.slide1 || "",
             slide2: $scope.slide2 || "",
             slide3: $scope.slide3 || ""
         }, function(data) {
 
-            console.log("ConfigSliderController.save.success");
+            console.log("ConfigSliderController.save.homeslides.success");
 
             //SUCCESS
             $('.ui.error.message').fadeIn();
             $('.ui.form')
-                .form("add errors", ["Cambios guardados"]);
+                .form("add errors", ["Slides actualizados"]);
             setTimeout(function() {
                 $('.ui.error.message').fadeOut();
-            }, 2000);
+            }, 5000);
 
         });
-    }
+
+        console.log("ConfigSliderController.save.hometext");
+        GAFile.saveHomeText({}, {
+            slide1Title: $scope.slide1Title || "",
+            slide1Text: $scope.slide1Text || "",
+            slide2Title: $scope.slide2Title || "",
+            slide2Text: $scope.slide2Text || "",
+            slide3Title: $scope.slide3Title || "",
+            slide3Text: $scope.slide3Text || "",
+        }, function(data) {
+            console.log("ConfigSliderController.save.hometext.success");
+            //SUCCESS
+            $('.ui.error.message').fadeIn();
+            $('.ui.form')
+                .form("add errors", ["Textos actualizados"]);
+            setTimeout(function() {
+                $('.ui.error.message').fadeOut();
+            }, 5000);
+        });
+
+    } //END SAVE
 
 
 

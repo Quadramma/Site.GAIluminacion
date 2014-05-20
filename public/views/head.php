@@ -35,6 +35,11 @@
             ,"ga_product.details3"
         ]);
 
+   // $col = array();
+    for ($i=80 ; $i < 81 ; $i++ ) { 
+       // $col[] = $collection[$i];
+    }
+
     //PROJECT
     $projects  = TNDB::$ctx->select("ga_project"
         , [   "[><]ga_category" => ["_category_id" => "_id"] ]
@@ -64,6 +69,8 @@
     $destacados = getJsonAsArray("backend/api/destacados.json");
     //HOME SLIDES
     $homeslides = getJsonAsArray("backend/api/home_slides.json");
+    //HOME TEXTS
+    $hometexts = getJsonAsArray("backend/api/home_text.json");
    
 ?>
 <!DOCTYPE html>
@@ -79,6 +86,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta charset="utf-8" />
+    
+  
+
     <!-- STYLES -->
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
      <link href="css/ga.pluggins.css" rel="stylesheet">
@@ -92,12 +102,46 @@
    
  
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<!--
+  <link href="backend/css/semantic.min.css" rel="stylesheet" type="text/css" />
+    <script src="backend/lib/semantic.min.js"></script>
+-->
+
     <script src="http://underscorejs.org/underscore-min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
    
     <script src="libs/scrollToggle.js" type="text/javascript"></script>
     <script src="libs/jquery.ga.pluggins.min.js" type="text/javascript"></script>
+   
+
+   <!-- -->
+    <?php
+        echo "<script>";
+        echo "db = {};";
+        echo "db.collectionCount = " . count($collection) . ";";        
+        //
+       // echo "var colJSON = '" . addslashes(json_encode($collection)) . "';";
+        
+        echo "db.collection = JSON.parse('".addslashes(json_encode($collection))."');";
+        echo "db.projects = JSON.parse('". addslashes(json_encode($projects))."');";
+        echo "db.destacados = JSON.parse('". addslashes(json_encode($destacados))."');";
+        echo "db.homeslides = JSON.parse('". addslashes(json_encode($homeslides))."');";
+        echo "db.projectid  = ".($projectid==""?"null":$projectid).";";
+        echo "db.productid  = ".($productid==""?"null":$productid).";";
+        echo "db.hometexts = JSON.parse('". addslashes(json_encode($hometexts))."');";
+        echo "db.scrollTo   = '$scrollTo';";
+        //
+       //ob_end_clean();
+        //echo "db.product  = ".($product==""||$product==null?"null":"JSON.parse('".addslashes(json_encode($product))."')"  ).";";
+       //exit;
+
+        echo "db.product  = ".($product==""||$product==null?"null":"JSON.parse('".addslashes(json_encode($product))."')"  ).";";
+        echo "db.project  = ".($project==""||$project==null?"null":"JSON.parse('".addslashes(json_encode($project))."')"  ).";";
+        echo "</script>";
+    ?>
+
     <script src="js/other/gafront.js" type="text/javascript"></script>
     
     
@@ -112,22 +156,6 @@
     <script src="js/controllers/GaController.js"></script>
     
     
-    <!-- -->
-    <?php
-        echo "<script>";
-        echo "db = {};";
-        echo "db.collection = JSON.parse('". json_encode($collection)."');";
-        echo "db.projects = JSON.parse('". json_encode($projects)."');";
-        echo "db.destacados = JSON.parse('". json_encode($destacados)."');";
-        echo "db.homeslides = JSON.parse('". json_encode($homeslides)."');";
-        echo "db.projectid  = ".($projectid==""?"null":$projectid).";";
-        echo "db.productid  = ".($productid==""?"null":$productid).";";
-        
-        echo "db.scrollTo   = '$scrollTo';";
-
-        echo "db.product  = ".($product==""||$product==null?"null":json_encode($product)).";";
-        echo "db.project  = ".($project==""||$project==null?"null":json_encode($project)).";";
-        echo "</script>";
-    ?>
+ 
     
 </head>

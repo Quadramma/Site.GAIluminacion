@@ -2,7 +2,9 @@
 
 
 
-
+.ga.navbar.container{
+	padding: 0% 5% 5% 5% !important;
+}
 
 
 
@@ -339,7 +341,7 @@ blockquote:before {content:'“'; position:absolute; left:15px; top:13px; font-s
 
 
 .containerDisabled{
-	padding: 5% 0% 5% 7%;
+	padding: 5% 5% 5% 5% !important;
 }
 
 #productModal{
@@ -881,10 +883,10 @@ header {
 /*-----------------------------------------------------------------------------------*/
 /*	COLLECTION AND PROJECTS
 /*-----------------------------------------------------------------------------------*/
-#proyectos {
-	padding-top:47px;
+.proyecto_category {
+	padding-top: 90px;
 }
-#proyectos h2 {
+.proyectos_category h2 {
 	font-family: 'Roboto', sans-serif;	
 	letter-spacing: -1px
 }

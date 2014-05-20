@@ -1,9 +1,14 @@
 
-<div class="padbot20">
-		<div class="containerDisabled" style="margin-bottom: -135px;">
-			<h2></h2>
+<div class="" style="
+    margin-bottom: -50px;
+">
+		<div class="containerDisabled" style="
+    padding: 5% 5% 0% 5% !important;
+" id="proyectos">
+			<h2>Proyectos</h2>
 		</div>
-<section id="proyectos" ng-repeat="currentProjectCategory in projectCategories"  class="padbot20">
+</div>	
+<section class="proyecto_category padbot20" ng-repeat="currentProjectCategory in projectCategories"  >
 		
 	<!-- PROJECTS CATEGORY -->
 	<!-- CONTAINER -->

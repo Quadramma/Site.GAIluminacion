@@ -2,6 +2,15 @@ function NMSAppController($scope, $rootScope) {
 
     // $("title").html("Clarity | Flow/Health");
 
+
+    setTimeout(function(){
+
+        $(".ng-scope").css("max-height",$(window).height());
+        $(".ng-scope").css("overflow","auto");
+        $(".ui.menu").css("overflow","hidden");
+
+    },3000);
+
 }
 
 

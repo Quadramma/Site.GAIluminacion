@@ -26,6 +26,14 @@ Flight::route('/contacto', function(){
     include "site.php";
 });
 
+Flight::route('/proyecto', function($id){
+    include "project.php";
+});
+Flight::route('/producto', function($id){
+    include "product.php";
+});
+
+
 
 
 Flight::map('error', function(Exception $ex){

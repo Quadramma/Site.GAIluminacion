@@ -28,6 +28,28 @@ Flight::map('getJsonAsArray', function($filename){
     return $collection;
 });
 
+Flight::route('POST /file/saveHomeText', function(){
+    Flight::setCrossDomainHeaders();
+    $data = FlightHelper::getData();//data
+    $my_file = "home_text.json";
+    //
+    $collection =  array(
+      "slide1"=> array(
+          "title" => $data["slide1Title"],
+          "text" => $data["slide1Text"],
+        ),
+      "slide2"=> array(
+          "title" => $data["slide2Title"],
+          "text" => $data["slide2Text"],
+        ),
+      "slide3"=> array(
+          "title" => $data["slide3Title"],
+          "text" => $data["slide3Text"],
+        )
+      );
+    file_put_contents($my_file, json_encode($collection));
+    //
+});
 
 Flight::route('POST /file/saveDestacados', function(){
     Flight::setCrossDomainHeaders();
@@ -67,6 +89,12 @@ Flight::route('GET /file/getHomeSlides', function(){
   Flight::setCrossDomainHeaders();
   Flight::jsoncallback(array(
       "files"=> Flight::getJsonAsArray("home_slides.json")
+    ));
+});
+Flight::route('GET /file/getHomeText', function(){
+  Flight::setCrossDomainHeaders();
+  Flight::jsoncallback(array(
+      "files"=> Flight::getJsonAsArray("home_text.json")
     ));
 });
 

@@ -1,6 +1,8 @@
+
+
 <header>
     <div class="menu_block">
-        <div class="container clearfix">
+        <div class="ga navbar container clearfix">
             <div class="logo pull-left">
                 <img src="images/logoGA.png" />
             </div>
@@ -13,12 +15,17 @@
                         </li>
                         <li class="liProy scroll_btn"><a ng-click="pushState('proyectos')" rel="proyectos" href="#proyectos">Proyectos</a>
                         </li>
+
                         <li class="liFil scroll_btn"><a ng-click="pushState('filosofia')"  rel="filosofia" href="#filosofia">Filosofía</a>
                         </li>
-                        <li class="liLoc scroll_btn last"><a ng-click="pushState('locales')"   rel="locales"href="#locales">Locales</a>
+                        <li class="liLoc scroll_btn "><a ng-click="pushState('locales')"   rel="locales"href="#locales">Locales</a>
                         </li>
-                        <li class="liCont scroll_btn last"><a ng-click="pushState('contacto')"  rel="contacto" href="#contacto">Contacto</a>
+                        <li class="liCont scroll_btn "><a ng-click="pushState('contacto')"  rel="contacto" href="#contacto">Contacto</a>
                         </li>
+                       
+                        <li class="scroll_btn last">
+<a  rel="descargas" ng-click="clickDescargas();">Login</a>
+</li>
                     </ul>
                 </nav>
             </div>
@@ -27,5 +34,8 @@
         <!-- //MENU BLOCK -->
     </div>
     <!-- //CONTAINER -->
+
+
+
 </header>
 <!-- //HEADER -->

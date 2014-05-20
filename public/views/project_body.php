@@ -42,7 +42,7 @@
 					<div class="flexslider portfolio_single_slider">
 						<ul class="slides">
 							<li ng-repeat="slide in slides track by $index">
-								<img src="backend/api/uploads/projects_slides/{{slide}}" alt="" />
+								<img src="../backend/api/uploads/projects_slides/{{slide}}" alt="" />
 							</li>
 						</ul>
 					</div><!-- //PORTFOLIO SLIDER -->

@@ -1,9 +1,6 @@
 <!-- CONTAINER -->
 <section id="contacto" >
-<div class="" style="
-    padding-left: 2%;
-    padding-right: 2%;
-">
+<div class="containerDisabled" >
 	
 	<!-- ROW -->
 	<!--
@@ -18,7 +15,7 @@
 					<img src="backend/api/uploads/products/{{item.url}}" alt="" />
 				</div>
 				<div class="post_item_content_small">
-					<a class="title" href="#" >{{item.name}}</a>
+					<a class="title" href="#" ng-click="clickDestacado(item);" >{{item.name}}</a>
 					<ul class="post_item_inf_small">
 						<li>{{item.code}}</li>
 						<li>{{item.details1}}</li>
@@ -60,7 +57,7 @@ esse cillum dolore eu fugiat nulla pariatur.</p>
 						<input type="text" name="name" value="Nombre" onFocus="if (this.value == 'Nombre') 
 						this.value = '';" onBlur="if (this.value == '') this.value = 'Nombre';" />
 						<textarea name="message" onFocus="if (this.value == 'Mensaje') this.value = '';" onBlur="if (this.value == '') this.value = 'Mensaje';">Mensaje</textarea>
-						<input class="contact_btn" type="submit" value="Enviar mensaje" />
+						<input class="contact_btn" type="button" value="Enviar mensaje" />
 					</form>
 				</div>
 			</div><!-- //CONTACT FORM -->
