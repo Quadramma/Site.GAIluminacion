@@ -969,6 +969,22 @@ ul.product-collection li{
 	top: -150px;
 	}
 
+
+
+@media (max-width: 320px) {
+	.top_slider .slide1 .flex_caption1 .title1, .top_slider .slide1 .flex_caption1 .title2, .top_slider .slide1 .flex_caption1 .title3, .top_slider .slide2 .flex_caption1 .title1, .top_slider .slide2 .flex_caption1 .title2, .top_slider .slide2 .flex_caption1 .title3, .top_slider .slide3 .flex_caption1 .title1, .top_slider .slide3 .flex_caption1 .title2, .top_slider .slide3 .flex_caption1 .title3 
+	{
+		word-spacing: 6px;
+	}
+	div.project-title-container h3 {
+		line-height: 75px;
+		margin-bottom: 50px;
+	}
+	section#filosofia h2{
+		line-height: 46px;
+	}
+}
+
 /* Large desktop */
 @media (min-width: 1200px) {
 	ul.product-collection li{
