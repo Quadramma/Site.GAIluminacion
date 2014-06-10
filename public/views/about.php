@@ -11,26 +11,35 @@
 			<div class="row row-services">
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-ss-12 margbot30">
 					<a class="services_item" href="javascript:void(0);" >
-						<p>Belleza que inspira</p>
-						<span>Enciende tus sentidos con la nueva colección<br/> de lámparas y accesorios exclusivos.</span>
+						<p>Experiencia</p>
+						<span>
+							Desde el año 1970, tres generaciones impulsan el concepto GA con enorme éxito.
+						</span>
+
 					</a>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-ss-12 margbot30">
 					<a class="services_item" href="javascript:void(0);" >
-						<p>Conquista la belleza</p>
-						<span>Con la nueva colección de lamparas <br/> y accesorios exclusivos.</span>
+						<p>Vanguardia</p>
+						<span>
+						El arte milenaria del Cristal de Bohemia  combinada con la innovación.
+						</span>
 					</a>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-ss-12 margbot30">
 					<a class="services_item" href="javascript:void(0);" >
-						<p>Inspira tus sentidos</p>
-						<span>Con la nueva colección de lamparas <br/>y accesorios exclusivos.</span>
+						<p>Diseño</p>
+						<span>
+							Incluyendo la producción e importación en su colección de la mejor calidad.
+						</span>
 					</a>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-ss-12 margbot30">
 					<a class="services_item" href="javascript:void(0);" >
-						<p>Enciende tus sentidos</p>
-						<span>Con la nueva colección de lamparas<br/> y accesorios exclusivos.</span>
+						<p>Atención Profesional</p>
+						<span>
+							Ofreciendo una experiencia de compra inigualable para cada uno de sus clientes.
+						</span>
 					</a>
 				</div>
 			</div><!-- //ROW -->

@@ -1,61 +1,66 @@
 <?php
 
-//GROUPS
+//CATEGORY
+define('GA_CATEGORY_ROUTE_ALL', "GET /category");
+define('GA_CATEGORY_ROUTE_SINGLE', "GET /category/@id:[0-9]+");
+define('GA_CATEGORY_ROUTE_CREATE', "POST /category");
+define('GA_CATEGORY_ROUTE_UPDATE', "POST /category/@id:[0-9]+");
+define('GA_CATEGORY_ROUTE_DELETE', "DELETE /category/@id");
+define('GA_CATEGORY_TABLE', 'ga_category');
 
-Flight::map('getCategories', function(){
+
+Flight::route(GA_CATEGORY_ROUTE_ALL, function(){
+	Flight::setCrossDomainHeaders();
+	TNDB::init();
+	$rta = TNDB::$ctx->select(GA_CATEGORY_TABLE, "*");
+    Flight::jsoncallback($rta);
+});
+
+Flight::route(GA_CATEGORY_ROUTE_SINGLE, function($id){
+	Flight::setCrossDomainHeaders();
     TNDB::init();//always.
-    $collection = TNDB::$ctx->select('ga_category', "*");
-    return json_encode($collection);
+    $rta = TNDB::$ctx->select(GA_CATEGORY_TABLE, "*",["_id"=>$id]);
+    Flight::jsoncallback($rta);
 });
 
-Flight::route('/category', function(){
-    Flight::callback(Flight::getCategories());
-});
-
-Flight::route('/category/@id:[0-9]+', function($id){
-    TNDB::init();//always.
-    $collection = TNDB::$ctx->select('ga_category', "*",["_id"=>$id]);
-    Flight::callback(json_encode($collection));
-});
-
-Flight::route('POST /category/create', function(){
+Flight::route(GA_CATEGORY_ROUTE_CREATE, function(){
+	Flight::setCrossDomainHeaders();
 	TNDB::init();//always.
-	$description = Flight::request()->data->description;
-	if(!isset($description)){
-		echo "INVALID POST";
-		exit;
-	}
-	TNDB::$ctx->insert('ga_category', ["description" => $description]);
-	Flight::callback(Flight::getCategories());
+	$data = FlightHelper::getData();//data
+	TNDB::$ctx->insert(GA_CATEGORY_TABLE, [
+		"description" => $data["description"],
+		"_category_type_id" => $data["_category_type_id"]
+		]);
+	Flight::jsoncallback(array(
+			"ok"=>true,
+			"dbResult"=>TNDB::$ctx->error(),
+			));
 });
 
-Flight::route('POST /category/update', function(){
+Flight::route(GA_CATEGORY_ROUTE_UPDATE, function($id){
 	TNDB::init();//always.
-	$_id 			= Flight::request()->data->_id;
-	$description 	= Flight::request()->data->description;
-	if(!isset($description)){
-		echo "INVALID POST: ISSET DESCRIPTION";
-		//echo "[".$description."][".Flight::request()->data->description."]";
-		exit;
-	}
-	if(!isset($_id)){
-		echo "INVALID POST: ISSET _ID";
-		exit;
-	}
-	TNDB::$ctx->update('ga_category', ["description" => $description],["_id" => $_id]);
-	Flight::callback(Flight::getCategories());
+	Flight::setCrossDomainHeaders();
+	$data = FlightHelper::getData();//data
+	TNDB::$ctx->update(GA_CATEGORY_TABLE, [
+		"description" => $data["description"]]
+		,["_id" => $data["_id"]]);
+	Flight::jsoncallback(array(
+			"ok"=>true,
+			"dbResult"=>TNDB::$ctx->error(),
+			));
 });
 
-Flight::route('/category/delete', function(){
+Flight::route(GA_CATEGORY_ROUTE_DELETE, function($id){
+	Flight::setCrossDomainHeaders();
 	TNDB::init();//always.
-	$_id = Flight::request()->data->_id;
-	if(!isset($_id)){
-		echo "INVALID DELETE";
-		exit;
-	}
-	TNDB::$ctx->delete('ga_category', ["_id" => $_id]);
-	Flight::callback(Flight::getCategories());
+	TNDB::$ctx->delete(GA_CATEGORY_TABLE, ["_id" => $id]);
+	Flight::jsoncallback(array(
+			"ok"=> !TNDB::$ctx->has(GA_CATEGORY_TABLE, ["_id" => $id]),
+			"dbResult"=>TNDB::$ctx->error()
+			));
 });
+
+
 
 
 ?>

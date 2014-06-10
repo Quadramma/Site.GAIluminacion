@@ -1,5 +1,5 @@
 <!-- PORTFOLIO -->
-<section id="portfolio">
+<section id="portfolio" ng-controller="SingleProjectController">
 	
 	<!-- CONTAINER -->
 	<div class="container">
@@ -11,13 +11,9 @@
 			<div class="sidebar col-lg-4 col-md-4 pull-right padbot50">
 				<!-- TEXT WIDGET -->
 				<div class="sidepanel widget_text">
-					<div class="single_portfolio_post_title">Vic Project</div>
-					<div class="single_portfolio_post_subtitle">Artículo #4586</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-elit, sed do eiusmod tempor incididunt ut labore et
-dolore magna aliqua.</p>
-			<p>Duis aute irure dolor in reprehenderit in voluptate velit
-esse cillum dolore eu fugiat nulla pariatur..</p>
+					<div class="single_portfolio_post_title"><?=$project[0]["name"]?></div>
+					<div class="single_portfolio_post_subtitle"></div>
+					<p><?=$project[0]["description"]?></p>
 				</div><!-- //TEXT WIDGET -->
 				
 				<hr>
@@ -25,16 +21,12 @@ esse cillum dolore eu fugiat nulla pariatur..</p>
 				<!-- INFO WIDGET -->
 				<div class="sidepanel widget_info">
 					<ul class="work_info">
-						<li><b>Dimensiones:</b> <br>Medidas: H:50cm; D: 50cm.</li>
-						<li><b>Lámpara:</b> <br>Luces: Dos</li>
-						<li><b>Colores:</b> <br>Clear Crystal</li>
+					
 					</ul>
 					
 					<ul class="shared">
-						<li><a href="javascript:void(0);" ><i class="fa fa-twitter"></i></a></li>
-						<li><a href="javascript:void(0);" ><i class="fa fa-facebook"></i></a></li>
-						<li><a href="javascript:void(0);" ><i class="fa fa-google-plus"></i></a></li>
-						<li><a href="javascript:void(0);" ><i class="fa fa-pinterest-square"></i></a></li>
+						<li><a href="https://twitter.com/GAiluminacion" target="_blank" ><i class="fa fa-twitter"></i></a></li>
+						<li><a href="https://www.facebook.com/ga.iluminacion.3" target="_blank" ><i class="fa fa-facebook"></i></a></li>
 					</ul>
 				</div><!-- //INFO WIDGET -->
 			</div><!-- //SIDEBAR -->
@@ -49,10 +41,9 @@ esse cillum dolore eu fugiat nulla pariatur..</p>
 					<!-- PORTFOLIO SLIDER -->
 					<div class="flexslider portfolio_single_slider">
 						<ul class="slides">
-							<li><img src="images/portfolio/1.jpg" alt="" /></li>
-							<li><img src="images/portfolio/1_2.jpg" alt="" /></li>
-							<li><img src="images/portfolio/1_3.jpg" alt="" /></li>
-							<li><img src="images/portfolio/1_4.jpg" alt="" /></li>
+							<li ng-repeat="slide in slides track by $index">
+								<img src="../backend/api/uploads/projects_slides/{{slide}}" alt="" />
+							</li>
 						</ul>
 					</div><!-- //PORTFOLIO SLIDER -->
 				</div><!-- //SINGLE PORTFOLIO POST -->

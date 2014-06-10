@@ -5,10 +5,10 @@ class TNDB {
     public static function init() {
         self::$ctx = new medoo(array(
         'database_type' => 'mysql',
-        'database_name' => "lc000386_ga", 
+        'database_name' => "gaweb", 
         'server' => "localhost", 
-        'username' => "lc000386_ga",
-        'password' => "Iluminacion14"
+        'username' => "gaweb",
+        'password' => "GawebGaweb2014"
       ));
     }
 }

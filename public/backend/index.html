@@ -1,54 +1,87 @@
 <!DOCTYPE html>
-<html ng-app="GApp">
+<html ng-app="NMSApp" ng-controller="NMSAppController">
 
 <head>
-    <meta charset="utf-8">
-    <title>GA | Backend</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="images/favicon.ico">
+    <title>NMS</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta charset="utf-8" />
-    <!-- -->
-    <link rel="stylesheet" href="css/semantic.css" />
-    <!-- -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--NMS.DESCRIPTION && ICON -->
+    <meta name="description" content="Clarity S.A., Software integral">
+    <meta name="keywords" content="software, gestion, sistema para clinicas, sistema de gestion, ERP, HIS, HCE, CRM, Control de fichadas, email marketing, ClarityHealth, ClarityFlow, Clarity, sistema para hospitales, sistema para sanatorios">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+
+    <!--CSS.SEMANTIC -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/semantic.min.css" />
+
+    
+    <!--JS.ESSENTIAL-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="http://underscorejs.org/underscore-min.js"></script>
-    <script src="libs/semantic.js"></script>
+    <script src="lib/semantic.min.js"></script>
+    <script src="lib/semantic-state.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
-    <script src="libs/angular-resource.js"></script>
-    <script src="libs/angular-ui-router.js"></script>
+    <script src="lib/angular-resource.min.js"></script>
+    <script src="lib/angular-ui-router.js"></script>
+    <!--
+    <script src="lib/angular-file-upload.min.js"></script>  
+    -->
+
+    <script src="lib/store.js"></script>
+    <script src="lib/jquery.tablesort.min.js"></script>
+    
     <!-- -->
-    
-    <script src="js/services/DestacadoService.js"></script>
-    <script src="js/services/LoginService.js"></script>
+
+    <!--ANGULAR.APP-->
     <script src="js/config/app.js"></script>
-    <script src="js/config/appRoutes.js"></script>
-    <script src="js/controllers/GaBackendController.js"></script>
-    <script src="js/controllers/GaBackendLoginController.js"></script>
-    <script src="js/controllers/GaBackendDestacadoController.js"></script>
+    <script src="js/routes/appRoutes.js"></script>
+
+    <!-- --NMS--                                                            --NMS-- -->
+    <!--NMS.CSS-->
+    <link rel="stylesheet" href="css/nms.css" />
+    <link rel="stylesheet" href="css/nms-navigation.css" />
+    <!--NMS.ANGULAR.CONTROLLERS-->
+    <script src="js/controllers/NMSAppController.js"></script>
+    <!--NMS.MODEL-->
+    <script src="js/model/nms/ResourceControllerMixinService.js"></script>
+    <script src="js/model/nms/NMSHelperService.js"></script>
+
+
+
+     <!-- --GA--                                                            --GA-- -->
+     <!--GA.ANGULAR.SERVICES-->
+     <script src="js/services/ga/CategoryService.js"></script>
+     <script src="js/services/ga/ProductService.js"></script>
+     <script src="js/services/ga/ProjectService.js"></script>
+     
+     <script src="js/services/ga/GAFileService.js"></script>
+     
+     <!--GA.ANGULAR.CONTROLLERS-->
+    <script src="js/controllers/ga/CategoryController.js"></script>
+    <script src="js/controllers/ga/ProductController.js"></script>
+    <script src="js/controllers/ga/ProjectController.js"></script>
+    <script src="js/controllers/ga/ConfigController.js"></script>
     
+    <!--GA.ANGULAR.ROUTES-->
+    <script src="js/routes/ga/appRoutes.ga.js"></script>
+    <script src="js/routes/ga/appRoutes.category.js"></script>
+    <script src="js/routes/ga/appRoutes.product.js"></script>
+    <script src="js/routes/ga/appRoutes.project.js"></script>
+    
+    
+    <!--GA.CSS-->
+    <link rel="stylesheet" href="css/ga.style.css" />
+    <!--GA.JS-->
 
 </head>
 
 <body>
-    <div class="ui grid">
-        <div class="row">
-            <div class="column">
-                <div class="ui segment">
-                    <img class="ui thin image" src="images/logo.jpg">
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="column">
-                <div class="ui segment">
-                    <div ui-view></div>
-                </div>
-            </div>
-        </div>
+    <div class="nms page">
+        <div ui-view></div>
     </div>
-
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 <!-- COLLECTION ------------------- -->
-	<section id="collection">
+
+	<section id="coleccion">
 		<div class="padbot20">
 		<div class="containerDisabled ga-collections-container">
 			<h2>Colección</h2>

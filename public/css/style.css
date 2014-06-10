@@ -2,10 +2,26 @@
 
 
 
+.ga.navbar.container{
+	padding: 0% 5% 5% 5% !important;
+}
 
 
+form.form-signin button{
+	margin-top: 10px;
+}
 
+li.scroll_btn.last a:hover{
+	cursor: pointer;
+}
 
+div.work_item:hover{
+	cursor: pointer;
+}
+
+div.owl-buttons{
+	margin-right: 20px;
+}
 
 
 /*-----------------------------------------------------------------------------------*/
@@ -339,7 +355,7 @@ blockquote:before {content:'“'; position:absolute; left:15px; top:13px; font-s
 
 
 .containerDisabled{
-	padding: 5% 0% 5% 7%;
+	padding: 5% 5% 5% 5% !important;
 }
 
 #productModal{
@@ -589,27 +605,35 @@ header {
 /*-----------------------------------------------------------------------------------*/
 /*	FILOSOFY
 /*-----------------------------------------------------------------------------------*/
-#filosofy {
+#filosofia {
 	background: url(../images/about_background.jpg);
 	min-height: 626px;
 	background-repeat: no-repeat;
 	background-size: cover;
 	padding-top: 130px;
 }
-#filosofy .container{
+#filosofia .container{
  	position: relative;
 	padding-top: 14%;
 }
-#filosofy h2{
+#filosofia h2{
 	font-family: 'Roboto', sans-serif;	
 	color:#FFFFFF;
 	font-size: 56px;
+	font-weight: 100;
 }
-#filosofy p{
+#filosofia p{
 	font-family: 'Roboto', sans-serif;	
 	color:#FFFFFF;
-	font-size: 20px;
-	width: 503px;
+	font-size: 14px;
+	font-weight: 100;
+}
+
+
+.top_slider .slide1 .flex_caption1 .title4
+,.top_slider .slide2 .flex_caption1 .title4
+,.top_slider .slide3 .flex_caption1 .title4 {
+	font-weight: 100;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -637,14 +661,19 @@ header {
 	font-family: 'Roboto', sans-serif;	
 	color:#FFFFFF;
 	font-size: 46px;
+	font-weight: 100;
 }
-.local h6{
+.local h6 {
 	font-family: 'Roboto', sans-serif;
-	color:white;
-	font-size: 18px;
+	color: white;
+	font-size: 15px;
 	letter-spacing: 0px;
+	font-weight: 100;
 }
 
+.flexslider.top_slider {
+	background-color: #1C1C1C;
+}
 
 /*-----------------------------------------------------------------------------------*/
 /*	ABOUT
@@ -881,10 +910,10 @@ header {
 /*-----------------------------------------------------------------------------------*/
 /*	COLLECTION AND PROJECTS
 /*-----------------------------------------------------------------------------------*/
-#projects {
-	padding-top:47px;
+.proyecto_category {
+	padding-top: 90px;
 }
-#projects h2 {
+.proyectos_category h2 {
 	font-family: 'Roboto', sans-serif;	
 	letter-spacing: -1px
 }
@@ -904,6 +933,11 @@ header {
 
 #portfolio{
 	margin-top: 50px;
+}
+
+
+.work_img:hover{
+	cursor: pointer;
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -942,6 +976,10 @@ ul.product-collection li img{
 	display: none;
 }
 
+.item:hover{
+	cursor: pointer;
+}
+
 .product-collection .item{
 	margin: 0 auto;
 	width: 200px;
@@ -958,8 +996,60 @@ ul.product-collection li{
 	top: -150px;
 	}
 
+
+
+@media (max-width: 320px) {
+	.top_slider .slide1 .flex_caption1 .title1, .top_slider .slide1 .flex_caption1 .title2, .top_slider .slide1 .flex_caption1 .title3, .top_slider .slide2 .flex_caption1 .title1, .top_slider .slide2 .flex_caption1 .title2, .top_slider .slide2 .flex_caption1 .title3, .top_slider .slide3 .flex_caption1 .title1, .top_slider .slide3 .flex_caption1 .title2, .top_slider .slide3 .flex_caption1 .title3 
+	{
+		word-spacing: 6px;
+	}
+	div.project-title-container h3 {
+		line-height: 75px;
+		margin-bottom: 8px;
+	}
+	section#filosofia h2{
+		line-height: 46px;
+	}
+
+
+	section#coleccion{
+		margin-top: 40px;
+	}
+}
+
+
+
+
+@media (min-width: 800px) {
+	#filosofia p {
+		font-size: 14px;
+		width: 610px;
+		line-height: 22px;
+	}
+}
+
+@media (min-width: 1024px) {
+	#filosofia p{
+			font-size: 15px;
+	width: 600px;
+	line-height: 21px;
+
+	}
+}
+
+
+
 /* Large desktop */
 @media (min-width: 1200px) {
+
+	#filosofia p{
+		font-size: 16px;
+		line-height: 24px;
+		width: 703px;
+	}
+
+
+
 	ul.product-collection li{
 	    width: 20%;
 	    float:left;
@@ -1444,7 +1534,7 @@ ul.project_info li span {color:#979797;}
 /*-----------------------------------------------------------------------------------*/
 /*	FOOTER
 /*-----------------------------------------------------------------------------------*/
-#contacts {
+#contacto {
 	position: relative;
 	z-index:0;
 	padding:0;

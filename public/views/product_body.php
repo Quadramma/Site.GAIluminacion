@@ -9,7 +9,7 @@ if (strpos($code, '#') !== FALSE){
 ?>
 
 <!-- PORTFOLIO -->
-<section id="portfolio">
+<section id="portfolio" ng-controller="SingleProductController">
 	
 <!-- CONTAINER -->
 <div class="container">
@@ -38,8 +38,8 @@ if (strpos($code, '#') !== FALSE){
 				</ul>
 				
 				<ul class="shared">
-					<li><a href="javascript:void(0);" ><i class="fa fa-twitter"></i></a></li>
-					<li><a href="javascript:void(0);" ><i class="fa fa-facebook"></i></a></li>
+					<li><a href="https://twitter.com/GAiluminacion" target="_blank" ><i class="fa fa-twitter"></i></a></li>
+					<li><a href="https://www.facebook.com/ga.iluminacion.3" target="_blank" ><i class="fa fa-facebook"></i></a></li>
 				</ul>
 			</div><!-- //INFO WIDGET -->
 		</div><!-- //SIDEBAR -->
@@ -54,10 +54,9 @@ if (strpos($code, '#') !== FALSE){
 				<!-- PORTFOLIO SLIDER -->
 				<div class="flexslider portfolio_single_slider">
 					<ul class="slides">
-						<li><img src="images/portfolio/1.jpg" alt="" /></li>
-						<li><img src="images/portfolio/1_2.jpg" alt="" /></li>
-						<li><img src="images/portfolio/1_3.jpg" alt="" /></li>
-						<li><img src="images/portfolio/1_4.jpg" alt="" /></li>
+						<li ng-repeat="slide in slides  track by $index">
+							<img src="../backend/api/uploads/products_slides/{{slide}}" alt="" />
+						</li>
 					</ul>
 				</div><!-- //PORTFOLIO SLIDER -->
 			</div><!-- //SINGLE PORTFOLIO POST -->

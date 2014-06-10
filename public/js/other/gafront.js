@@ -1,7 +1,7 @@
 //var GAImagePath = "_admin/uploads/";
 //var GAImageSliderPath = "_admin/uploads/slider/";
-var GAImagePath = "backend/api/routes/uploads/";
-var GAImageSliderPath = "backend/api/routes/uploads/slider/";
+var GAImagePath = "backend/api/uploads/products/";
+var GAImageSliderPath = "backend/api/uploads/products_slides/";
 var $GACollectionCollectionTemplate = null;
 var $liClone = null;
 $(function() {
@@ -71,13 +71,19 @@ function getRelatedItems($container) { //Devuelve el slider con tres productos a
 }
 
 function bindProductClick($li, item, data) {
+
+    $li.on("click", function() {
+        $("#formProduct").find("input").val(item._id);
+        $("#formProduct").submit();
+    });    
+
     $li.find(".link").on("click", function() {
         $("#formProduct").find("input").val(item._id);
         $("#formProduct").submit();
     });
 
     return; //DEPRECATED
-
+/*
     var $modal = $("#productModal");
     var sliderArr = [];
     if (!_.isUndefined(item.slider_urls) && !_.isNull(item.slider_urls) && item.slider_urls != "") {
@@ -154,6 +160,8 @@ function bindProductClick($li, item, data) {
         //
         //console.log("MODAL!");
     });
+*/
+
 }
 
 var GACollection = (function(params) {
@@ -252,7 +260,7 @@ drawGACollections = function($target, data) {
 
     gaCollections = []; //global
     data = _.sortBy(data, function(o) {
-        return o._category_id
+        return o.categoryDescription;
     }); //sort by category id
     function atNewCategory(_category_id, descr, _categoryData) {
 
@@ -303,13 +311,23 @@ window.jQuery = window.$ = jQuery;
 /*-----------------------------------------------------------------------------------*/
 /*  PRELOADER
 /*-----------------------------------------------------------------------------------*/
-jQuery(window).load(function() {
-    //Preloader
-    setTimeout("jQuery('#preloader').animate({'opacity' : '0'},300,function(){jQuery('#preloader').hide()})", 800);
-    setTimeout("jQuery('.preloader_hide, .selector_open').animate({'opacity' : '1'},500)", 800);
-    setTimeout("jQuery('footer').animate({'opacity' : '1'},500)", 2000);
 
-});
+if (db.productid == null && db.projectid == null) {
+
+    jQuery(window).load(function() {
+        //Preloader
+        setTimeout("jQuery('#preloader').animate({'opacity' : '0'},300,function(){jQuery('#preloader').hide()})", 800);
+        setTimeout("jQuery('.preloader_hide, .selector_open').animate({'opacity' : '1'},500)", 800);
+        setTimeout("jQuery('footer').animate({'opacity' : '1'},500)", 2000);
+    });
+
+} else {
+    jQuery('#preloader').hide(true);
+    //
+    setTimeout("jQuery('.preloader_hide, .selector_open').animate({'opacity' : '1'},500)", 200);
+    setTimeout("jQuery('footer').animate({'opacity' : '1'},500)", 500);
+    setTimeout("jQuery('#preloader').animate({'opacity' : '0'},300,function(){jQuery('#preloader').hide()})", 800);
+}
 
 
 
@@ -367,7 +385,7 @@ function bindSmothScroll() {
             if (target.length) {
                 GAHelper.autoLiActiveBasedOnScroll = false;
                 $('html,body').animate({
-                    scrollTop: target.offset().top
+                    scrollTop: target.offset().top - 30
                 }, 1000, function() {
                     setTimeout(function() {
                         GAHelper.autoLiActiveBasedOnScroll = true;
@@ -486,19 +504,7 @@ function bindReadyBehaviours() {
     });
 
 
-    var owl = $(".owl-demo.projects_slider"); //WORKS SLIDER
-    //console.log(owl.length);
-    owl.owlCarousel({
-        navigation: false,
-        pagination: false,
-        responsive: true,
-        items: 4,
-        itemsDesktop: [1000, 4],
-        itemsDesktop: [600, 3]
-    });
 
-    //PrettyPhoto
-    $("a[rel^='prettyPhoto']").prettyPhoto();
     //BlackAndWhite
     $('.client_img').BlackAndWhite({
         hoverEffect: true, // default true
