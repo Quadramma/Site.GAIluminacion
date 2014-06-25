@@ -15,7 +15,7 @@ Flight::map('getDestacados', function(){
 });
 
 Flight::route('GET /destacado', function(){
-    Flight::callback(json_encode(Flight::getDestacados()));
+    Flight::jsoncallback(Flight::getDestacados());
 });
 
 
@@ -46,7 +46,7 @@ Flight::route('POST /destacado', function(){
 	//
 	file_put_contents($my_file, json_encode($collection));
 	//
-	Flight::callback(json_encode($collection));
+	Flight::jsoncallback($collection);
 });
 
 

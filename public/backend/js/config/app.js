@@ -8,6 +8,9 @@ var NMSApp = angular.module("NMSApp", [
 
 
     //GA ============================================
+
+    "GaApiService",
+    
     "GaLoginService",
     "GAFileService",
 

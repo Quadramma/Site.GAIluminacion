@@ -38,6 +38,20 @@ function GAppController($scope, $rootScope) {
 
 
 //GA LOGIN///////////////////////////
+
+var GaApi = angular.module('GaApiService', ['ngResource'])
+    .factory('GaApi', ['$resource', "AppConfig",
+        function($resource, AppConfig) {
+            return $resource(AppConfig.apiGAProduccion + '/', {}, {
+                check: {
+                    method: 'GET',
+                    isArray: false
+                }
+            });
+        }
+    ]);
+
+
 var GaLogin = angular.module('GaLoginService', ['ngResource'])
     .factory('GaLogin', ['$resource', "AppConfig",
         function($resource, AppConfig) {
@@ -50,17 +64,26 @@ var GaLogin = angular.module('GaLoginService', ['ngResource'])
         }
     ]);
 
-function GaLoginController($scope, $rootScope, GaLogin, NMSHelper, $location) {
+function GaLoginController($scope, $rootScope, GaLogin, NMSHelper, $location,GaApi) {
     $scope.data = {
         username: store.get("gausername") || "",
         password: store.get("gapassword") || ""
     }
 
     $scope.tryLogin = function() {
+
+/*
+        GaApi.check({},function(data){
+            console.info("GAPI-TEST->"+JSON.stringify(data));
+        });
+*/
+
         GaLogin.check({}, $scope.data, function(data) {
             store.set("gausername", $scope.data.username);
             store.set("gapassword", $scope.data.password);
-            if (data.ok) {
+            console.info("loginvalidation->"+( (data.ok) == true));
+            if ( ((data.ok) == true) ) {
+                console.info("loginvalidation success");
                 $rootScope.logged = true;
                 NMSHelper.changeState($scope, $location, "/ga/home", 500);
             } else {

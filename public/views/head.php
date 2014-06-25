@@ -131,7 +131,7 @@
         echo "db.projectid  = ".($projectid==""?"null":$projectid).";";
         echo "db.productid  = ".($productid==""?"null":$productid).";";
         echo "db.hometexts = JSON.parse('". addslashes(json_encode($hometexts))."');";
-        echo "db.scrollTo   = '$scrollTo';";
+        //echo "db.scrollTo   = '$scrollTo';";
         //
        //ob_end_clean();
         //echo "db.product  = ".($product==""||$product==null?"null":"JSON.parse('".addslashes(json_encode($product))."')"  ).";";

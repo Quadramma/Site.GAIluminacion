@@ -1,4 +1,4 @@
-<?
+<?php
 
 
 
@@ -47,7 +47,7 @@ Flight::route(GA_PRODUCT_ROUTE_ALL, function(){
 Flight::route(GA_PRODUCT_ROUTE_SINGLE, function($id){
     TNDB::init();//always.
     $rta = TNDB::$ctx->select(GA_PRODUCT_TABLE, "*",["_id"=>$id]);
-    Flight::callback(json_encode($rta));
+    Flight::jsoncallback($rta);
 });
 
 Flight::route(GA_PRODUCT_ROUTE_DELETE, function($id){
