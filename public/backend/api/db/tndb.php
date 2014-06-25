@@ -3,13 +3,15 @@
 class TNDB {
     public static $ctx = null;
     public static function init() {
+        
         self::$ctx = new medoo(array(
         'database_type' => 'mysql',
-        'database_name' => "gaweb", 
+        'database_name' => "f7000115_gaweb", 
         'server' => "localhost", 
-        'username' => "gaweb",
-        'password' => "GawebGaweb2014"
+        'username' => "f7000115_gaweb",
+        'password' => "Gailuminacion12"
       ));
+
     }
 }
 

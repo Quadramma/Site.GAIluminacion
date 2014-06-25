@@ -1,5 +1,7 @@
 <?php
+
 $root = "/ga_site";
+
 $scrollTo = "";
 require 'libs/flight/Flight.php';  
 Flight::route('/', function(){
@@ -34,12 +36,6 @@ Flight::route('/producto', function($id){
 });
 
 
-
-
-Flight::map('error', function(Exception $ex){
-    echo $ex->getTraceAsString();
-});
-
 Flight::route('/backend', function(){
     Flight::redirect($root."backend/index.php");
 });
@@ -54,9 +50,15 @@ Flight::route('/panel', function(){
 });
 
 
+
+
+Flight::map('error', function(Exception $ex){
+    echo $ex->getTraceAsString();
+});
 Flight::set('flight.log_errors', true);
 Flight::map('notFound', function(){
     Flight::redirect($root);
 });
+
 Flight::start();
 ?>
