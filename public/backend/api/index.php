@@ -4,6 +4,7 @@ require 'db/tndb.php';        //DB
 require 'flight/Flight.php';  //ROUTES
 
 
+require 'routes/newsletter.php';    //ROUTES
 require 'routes/product.php';    //ROUTES
 require 'routes/project.php';    //ROUTES
 require 'routes/category.php';    //ROUTES

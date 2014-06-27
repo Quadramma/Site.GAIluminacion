@@ -2,27 +2,109 @@ angular.module('GApp', [
     'GApp.controllers'
 ]);
 
-angular.module('GApp.controllers', []).
-controller('GaController', function($scope) {
+angular.module('GApp.controllers', ["ngResource"])
+
+.controller('NewsletterList', function($scope, $resource) {
+    console.log("NewsletterList");
+    $scope.pdfList = db.newsletterFiles;
+})
+
+.controller('SubscribeController', function($scope, $resource) {
+    console.log("SubscribeController");
+
+    var $api = $resource("backend/api" + '/:controller/:action/:id', {}, {
+        query: {
+            method: "GET",
+            isArray: true
+        },
+        get: {
+            method: "GET",
+            isArray: false
+        },
+        save: {
+            method: 'POST',
+            isArray: false
+        },
+        update: {
+            method: 'POST',
+            isArray: false
+        },
+        delete: {
+            method: "DELETE",
+            isArray: false
+        }
+    });
+
+    $scope.subscribe = function() {
+
+
+        var name = $(".subscribe.name").val();
+        var email = $(".subscribe.email").val();
+        if (name === "" || email === "") {
+            console.log("subscribe failure: complete fields");
+            show("Datos requeridos");
+        } else {
+            console.log("subscribe");
+
+            $api.save({
+                controller: "newsletter",
+                action: "save"
+            }, {
+                name: name,
+                email: email
+            }, function(data) {
+                if (data.ok) {
+                    console.info('subscribe success');
+                    show("Datos enviados");
+                } else {
+                    show(data.error || "Error inesperado, itente mas tarde");
+                }
+
+            });
+
+        }
+
+
+
+    };
+
+    function show(text) {
+        $(".newsletter.form.subscribe.events").html(text);
+        $(".newsletter.form.subscribe.events").fadeIn();
+        setTimeout(function() {
+            $(".newsletter.form.subscribe.events").fadeOut();
+        }, 5000);
+    }
+})
+
+
+.controller('GaController', function($scope) {
     //console.log("GaController READY");
 
-    $scope.clickLogin = function(){
+
+    var newsletter = db.newsletter;
+
+    $scope.clickLogin = function() {
         var pass = $(".form-signin input").val();
-        if(pass == "123456"){
-            window.location.href = "sample.pdf";
-        }else{
+        if (pass == newsletter.password) {
+            //window.location.href = "sample.pdf";
+
+            $(".newsletter.login").fadeOut();
+            $(".newsletter.list").fadeIn();
+
+        } else {
             $(".form-signin p").fadeIn();
-            setTimeout(function(){
+            setTimeout(function() {
                 $(".form-signin p").fadeOut();
-            },5000);
+            }, 5000);
         }
     };
-    $scope.hideLogin=function(){
+    $scope.hideLogin = function() {
         $("#descargasModal").fadeOut();
     }
 
     $scope.clickDescargas = function() {
-        var name = "descargas"
+        var name = "newsletter"
         window.history.pushState({}, name, name);
         $("title").html(name + " | GA");
         $("#descargasModal").fadeIn("slow");
@@ -96,7 +178,7 @@ controller('GaController', function($scope) {
     $scope.slide3 = db.hometexts.slide3;
 
 
-    function setHomeSlides(){
+    function setHomeSlides() {
         var $path = "backend/api/uploads/home_slides/";
         var homeSlide1 = db.homeslides.slide1 || "slide1_bg.jpg";
         var homeSlide2 = db.homeslides.slide2 || "slide2_bg.jpg";
@@ -105,8 +187,8 @@ controller('GaController', function($scope) {
         $(".slide2").css("background-image", "url('" + $path + homeSlide2 + "')");
         $(".slide3").css("background-image", "url('" + $path + homeSlide3 + "')");
 
-       // console.log($path + homeSlide1);
-       // console.log("HOME SLIDES SET");
+        // console.log($path + homeSlide1);
+        // console.log("HOME SLIDES SET");
 
         $lis = $("#carousel .slides");
         $lis.find("img").each(function(index, i) {
@@ -158,7 +240,6 @@ controller('GaController', function($scope) {
 
         }, 800);
     });
-
 
 
 

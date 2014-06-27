@@ -1,5 +1,36 @@
 
 
+div.newsletter.list{
+	display: none;
+}
+
+ul.newsletter.list{
+	border: 1px solid;
+}
+
+div.newsletter.modal{
+	 top: 80px;
+    background: white;
+    overflow: hidden;
+    padding-top: 40px;
+}
+div.newsletter.header{
+	text-align: center;
+}
+div.newsletter.form.container{
+	text-align: center;
+    max-width: 200px;
+}
+button.newsletter.form.login.acceder{
+	font-size: 10px;
+    line-height: 0px;
+    padding: 15px;
+}
+p.newsletter.form.acceder.errors,
+p.newsletter.form.subscribe.events{
+	display: none;
+}
+
 
 
 .ga.navbar.container{

@@ -79,6 +79,26 @@ Flight::route('POST /file/saveHomeSlides', function(){
     //
 });
 
+
+Flight::route('POST /file/savenewsletterdata', function(){
+    Flight::setCrossDomainHeaders();
+    $data = FlightHelper::getData();//data
+    $my_file = "newsletter.json";
+    //
+    $collection =  array(
+        "password"=>$data["password"]
+      );
+    file_put_contents($my_file, json_encode($collection));
+    //
+});
+
+Flight::route('GET /file/getnewsletterdata', function(){
+  Flight::setCrossDomainHeaders();
+  Flight::jsoncallback(array(
+      "data"=> Flight::getJsonAsArray("newsletter.json")
+    ));
+});
+
 Flight::route('GET /file/getDestacados', function(){
   Flight::setCrossDomainHeaders();
   Flight::jsoncallback(array(

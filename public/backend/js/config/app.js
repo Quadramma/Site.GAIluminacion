@@ -6,6 +6,7 @@ var NMSApp = angular.module("NMSApp", [
     "NMSHelperService",
     "ResourceControllerMixinService",
 
+    "ngResource",
 
     //GA ============================================
 

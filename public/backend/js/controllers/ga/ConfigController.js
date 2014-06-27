@@ -1,6 +1,182 @@
-function GaUploadsController($scope, AppConfig) {
+function ConfigNewsletterController($scope, $state, AppConfig, $resource, $timeout) {
+    console.info('ConfigNewsletterController');
+
+    $scope.passwordSaveMessage = "";
+    $scope.userDeletedMessage = "";
+
+    function copyToClipboard(s) {
+        // ie
+        if (window.clipboardData && clipboardData.setData) {
+            clipboardData.setData('text', s);
+        }
+        // others
+        else {
+            var flashcopier = 'flashcopier';
+            if (!document.getElementById(flashcopier)) {
+                var divholder = document.createElement('div');
+                divholder.id = flashcopier;
+                document.body.appendChild(divholder);
+            }
+            document.getElementById(flashcopier).innerHTML = '';
+            var divinfo = '<embed src="_clipboard.swf" FlashVars="clipboard=' + encodeURIComponent(s) + '" width="0" height="0" type="application/x-shockwave-flash"></embed>';
+            document.getElementById(flashcopier).innerHTML = divinfo;
+        }
+    }
+
+    $scope.copyemail = function() {
+        _.each($scope.items, function(val) {
+            if (val.checked) {
+
+                $timeout(function() {
+                    copyToClipboard(val.email);
+                    console.info(val.email + ' copied to clipboard!');
+                });
+
+            }
+        });
+    }
+
+    $scope.deleteSelected = function() {
+
+        var item = null;
+        _.each($scope.items, function(val) {
+            if (val.checked) {
+                item = val;
+            }
+        });
+
+        if (item == null) {
+            console.info('deleteSelected nothing to delete !');
+            return;
+        }
+
+
+        $api.save({
+            controller: "newsletter",
+            action: "delete"
+        }, {
+            _id: item._id
+        }, function(data) {
+            console.info('deleteSelected success');
+            updateFromDB();
+            $scope.userDeletedMessage = "suscriptor eliminado";
+            setTimeout(function() {
+                $scope.userDeletedMessage = "";
+            }, 3000);
+
+        });
+
+        console.info('deleteSelected;');
+    };
+
+    $scope.updatepass = function() {
+
+
+        $api.save({
+            controller: "file",
+            action: "savenewsletterdata"
+        }, {
+            password: $scope.password
+        }, function(data) {
+            console.info('updatepass success');
+
+            $scope.passwordSaveMessage = "Password actualizada";
+            setTimeout(function() {
+                $scope.passwordSaveMessage = "";
+                console.info('updatepass success timeout over');
+            }, 3000);
+
+        });
+
+        console.info('updatepass');
+    }
+
+    $scope.check = function(item) {
+        _.each($scope.items, function(val) {
+            if (item.email.toString().toLowerCase() !== val.email.toString().toLowerCase()) {
+                val.checked = false;
+                console.info("uncheck! " + val.email);
+            }
+        });
+        // console.info($scope.items);
+    };
+
+    var $api = $resource(AppConfig.apiGAProduccion + '/:controller/:action/:id', {}, {
+        query: {
+            method: "GET",
+            isArray: true
+        },
+        get: {
+            method: "GET",
+            isArray: false
+        },
+        save: {
+            method: 'POST',
+            isArray: false
+        },
+        update: {
+            method: 'POST',
+            isArray: false
+        },
+        delete: {
+            method: "DELETE",
+            isArray: false
+        }
+    });
+
+    function updateFromDB() {
+        $api.get({
+            controller: "newsletter"
+        }, function(data) {
+            _.each(data.items, function(val) {
+                val.checked = false;
+            });
+            $scope.items = data.items;
+            // console.info(data.items);
+        });
+    }
+    updateFromDB();
+
+    $api.get({
+        controller: "file",
+        action: "getnewsletterdata"
+    }, function(res) {
+        console.info(res.data);
+        $scope.password = res.data.password;
+    });
+
+}
+
+
+
+function GaUploadsController($scope, AppConfig, $timeout) {
     console.log("GaUploadsController");
     $scope.file = null;
+
+    $scope.file = {
+        name: "",
+        ext: ""
+    };
+
+
+    function setFile(name, ext) {
+        $timeout(function() {
+            $scope.$apply(function() {
+                console.info("[Settings filename ->" + name + "]")
+                $scope.file.name = name;
+                $scope.file.ext = ext;
+            }, 500)
+        });
+    }
+     function showFileError(error) {
+        $scope.file.invalid = error;
+        $timeout(function() {
+            $scope.$apply(function() {
+                $scope.file.invalid = "";
+            }, 500)
+        },5000);
+    }
+
 
 
     //Ajax para enviar formdata
@@ -22,13 +198,31 @@ function GaUploadsController($scope, AppConfig) {
 
 
     $scope.tryupload = function() {
+
+        var ext = $scope.file.ext || "qwe";
+        var notAnImage = (ext !== "jpg") && (ext !== "png") && (ext !== "gif");
+        console.info(notAnImage);
+        console.info(ext);
+        var resFunction = $("#destinoDropdown").find("input").val();
+        console.info(resFunction);
+        if(notAnImage && ext!== "pdf"){
+            showFileError("Archivo invalido. Debe ser JPG,PNG o un PDF");
+            return;
+        }
+
+        if(ext == "pdf" && resFunction !== "newsletter"){
+            showFileError("La extension PDF solo acepta como destino newsletter");
+            return;   
+        }
+
+
         $('.ui.form').form('validate form');
     }
     $scope.upload = function() {
         console.log("GaUploadsController.upload");
         if ($scope.file == null) {
             //console.log("GaUploadsController.upload file empty nothing happens");
-            $scope.message("Warning: No se detecto ninguna imagen para subir", 3000);
+            $scope.message("Warning: No se detecto ninguna archivo para subir", 3000);
         } else {
             var fd = new FormData();
             fd.append("file", $scope.file);
@@ -38,7 +232,7 @@ function GaUploadsController($scope, AppConfig) {
                 console.log("GaUploadsController upload response");
                 console.log(res);
                 if (res.ok) {
-                    $scope.message("Imagen " + res.fileName + " cargada.", 2000);
+                    $scope.message("Archivo " + res.fileName + " cargada.", 2000);
                 } else {
                     $scope.message("Error: " + res.saveResponse.error, 10000);
                 }
@@ -72,11 +266,27 @@ function GaUploadsController($scope, AppConfig) {
 
         var file = e.dataTransfer.files[0],
             reader = new FileReader();
+
+        var ext = file.name.split(".")[file.name.split(".").length - 1];
+        setFile(file.name, ext);
+
         reader.onload = function(event) {
-            console.log(event.target);
+            console.info("reader onload");
+            console.info(event.target.result);
+            console.info(event.target);
             holder.style.background = 'url(' + event.target.result + ') no-repeat center';
+
+
+            var notAnImage = (ext !== "jpg") && (ext !== "png") && (ext !== "gif");
+            console.info(ext);
+            if (notAnImage) {
+                holder.style.background = 'url(' + "../images/file_placeholder.png" + ') no-repeat center';
+            }
         };
         console.log(file);
+
+
+
         reader.readAsDataURL(file);
         $scope.file = file;
         return false;

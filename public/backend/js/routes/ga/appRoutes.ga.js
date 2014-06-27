@@ -22,6 +22,17 @@ appRoutes.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
             }
         })
 
+
+        .state('ga.newsletter', {
+        url: '/newsletter',
+        views: {
+            '': {
+                templateUrl: 'views/layouts/ga/ga.config.newsletter.html',
+                controller: 'ConfigNewsletterController'
+            }
+        }
+    })
+
     .state('ga.categories', {
         url: '/categories',
         views: {
@@ -82,6 +93,8 @@ appRoutes.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
             }
         }
     })
+
+    
 
 });
 

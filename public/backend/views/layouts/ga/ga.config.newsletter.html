@@ -1,0 +1,43 @@
+<div class="ui form">
+    <div class="field">
+        <label>Password newsletter</label>
+        <input type="text" ng-model="password" placeholder="Ingrese Password" />
+    </div>
+</div>
+<a ng-click="updatepass()" class="ui small black button">Actualizar password</a>
+<label>{{passwordSaveMessage}}</label>
+
+
+<br>
+<br>
+
+<table class="ui table segment">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Nombre y Apellido</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in items">
+            <td>
+                <input type="checkbox" ng-model="item.checked" ng-click="check(item);" />
+            </td>
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th colspan="3">
+                {{items.length}} suscriptores leidos
+            </th>
+        </tr>
+    </tfoot>
+</table>
+<a ng-click="deleteSelected();" class="ui black labeled icon small button"><i class="add icon"></i> Borrar seleccionado</a>
+<label>{{userDeletedMessage}}</label>
+<!--
+<a ng-click="copyemail();" class="ui black labeled icon small button"><i class="add icon"></i> Copiar email seleccionado</a>
+-->

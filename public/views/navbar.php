@@ -24,7 +24,7 @@
                         </li>
                        
                         <li class="scroll_btn last">
-<a  rel="descargas" ng-click="clickDescargas();">Login</a>
+<a  rel="descargas" ng-click="clickDescargas();">Newsletter</a>
 </li>
                     </ul>
                 </nav>

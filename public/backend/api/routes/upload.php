@@ -1,7 +1,10 @@
 <?php
 
 
-
+Flight::route('POST /upload/newsletter', function(){
+  Flight::setCrossDomainHeaders();
+  saveFileAndWriteResponse("uploads/newsletter/","file"); 
+});
 Flight::route('POST /upload/products', function(){
   Flight::setCrossDomainHeaders();
   saveFileAndWriteResponse("uploads/products/","file"); 
@@ -43,12 +46,12 @@ function saveFileToPath($path,$inputName){
 	$url = "";
 	$fullurl ="";
 	$error = "";
-	$allowedExts = array("gif", "jpeg", "jpg", "png");
+	$allowedExts = array("gif", "jpeg", "jpg", "png","pdf");
 	$temp = explode(".", $_FILES[$inputName]["name"]);
 	//$temp = explode(".", $fileName);
 	$extension = end($temp);
 
-	if($_FILES[$inputName]["size"] > 1000000){
+	if($_FILES[$inputName]["size"] > 10000000){
 		$error =  "Archivo invalido. Admite 1mb maximo. ";
 	}else{
 		//
@@ -57,8 +60,16 @@ function saveFileToPath($path,$inputName){
 		|| ($_FILES[$inputName]["type"] == "image/jpg")
 		|| ($_FILES[$inputName]["type"] == "image/pjpeg")
 		|| ($_FILES[$inputName]["type"] == "image/x-png")
-		|| ($_FILES[$inputName]["type"] == "image/png"))
-		&& ($_FILES[$inputName]["size"] < 1000000) //1mb
+		|| ($_FILES[$inputName]["type"] == "image/png")
+		|| ($_FILES[$inputName]["type"] == "application/pdf"))
+			 
+		&& (
+			
+			$_FILES[$inputName]["size"] < 1000000 && $extension != "pdf" //para imagenes
+			||
+			$_FILES[$inputName]["size"] < 10000000 && $extension == "pdf" //para pdf
+
+			) //1mb
 		&& in_array($extension, $allowedExts)) {
 		if ($_FILES[$inputName]["error"] > 0) {
 		  $error = $_FILES[$inputName]["error"];
@@ -74,7 +85,7 @@ function saveFileToPath($path,$inputName){
 		//  }
 		}
 		} else {
-			$error =  "Archivo invalido. Admite solo gif, jpeg, jpg, png. 1mb maximo. ";
+			$error =  "Archivo invalido. Admite solo gif, jpeg, jpg, png. 1mb maximo. " . $_FILES[$inputName]["type"];
 		}
 	}
 	return array("url"=>$url,"error"=>$error,"fullurl"=>$fullurl);

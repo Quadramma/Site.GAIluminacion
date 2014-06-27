@@ -11,6 +11,23 @@
         return $collection;
     }
 
+    function GetFiles($path){
+      $rta = array();
+      if ($handle = opendir($path)) {
+        while (false !== ($entry = readdir($handle))) {
+            if ($entry != "." && $entry != "..") {
+                if (strpos($entry,'.') !== false) {
+                    $rta [] = $entry;
+                }else{
+                    
+                }
+            }
+        }
+        closedir($handle);
+      }
+      return $rta;
+    }
+
     //echo "<br>REQUIRE DB";
     //DB
     require 'backend/api/db/medoo.min.php';  //DB
@@ -71,6 +88,7 @@
     $homeslides = getJsonAsArray("backend/api/home_slides.json");
     //HOME TEXTS
     $hometexts = getJsonAsArray("backend/api/home_text.json");
+
    
 ?>
 <!DOCTYPE html>
@@ -111,6 +129,7 @@
     <script src="http://underscorejs.org/underscore-min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script src="backend/lib/angular-resource.min.js"></script>
    
     <script src="libs/scrollToggle.js" type="text/javascript"></script>
     <script src="libs/jquery.ga.pluggins.min.js" type="text/javascript"></script>
@@ -131,6 +150,11 @@
         echo "db.projectid  = ".($projectid==""?"null":$projectid).";";
         echo "db.productid  = ".($productid==""?"null":$productid).";";
         echo "db.hometexts = JSON.parse('". addslashes(json_encode($hometexts))."');";
+        
+
+        echo "db.newsletter = JSON.parse('". addslashes(json_encode(getJsonAsArray("backend/api/newsletter.json"))) ."');";
+        echo "db.newsletterFiles = JSON.parse('" 
+            . addslashes(json_encode(GetFiles("backend/api/uploads/newsletter"))) ."');";
         //echo "db.scrollTo   = '$scrollTo';";
         //
        //ob_end_clean();
