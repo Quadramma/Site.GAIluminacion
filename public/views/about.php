@@ -5,7 +5,7 @@
 	<div class="services_block padbot40" data-appear-top-offset="-200" data-animated="fadeInUp">
 		
 		<!-- CONTAINER -->
-		<div class="containerDisabled">
+		<div class="containerDisabled about">
 		
 			<!-- ROW -->
 			<div class="row row-services">

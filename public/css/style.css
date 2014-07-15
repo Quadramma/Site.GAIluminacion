@@ -1,5 +1,6 @@
 
 
+
 div.newsletter.list{
 	display: none;
 }
@@ -703,14 +704,14 @@ header {
 }
 
 .flexslider.top_slider {
-	background-color: #1C1C1C;
+	background-color: black;
 }
 
 /*-----------------------------------------------------------------------------------*/
 /*	ABOUT
 /*-----------------------------------------------------------------------------------*/
 #about {
-	padding-top:70px;
+	/* padding-top:70px; */
 	background-color: #1C1C1C
 }
 
@@ -2175,10 +2176,59 @@ input[type="color"]:focus {
 }
 
 
+	.flex-direction-nav {
+		position: relative !important;
+		margin: 0 auto !important;
+	}
+	.flex-direction-nav li a.flex-prev:before {
+		content: "\f104" !important;
+	}
+	.flex-direction-nav li a.flex-next:before {
+		content: "\f105" !important;
+	}
+	.flex-direction-nav li a.flex-prev {
+		left: 0 !important;
+	}
+	.flex-direction-nav li a.flex-next {
+		left: 71px !important;
+	}
+	.flex-direction-nav li a {
+		position: absolute !important;
+		z-index: 300 !important;
+		bottom: -75px;
+		display: block !important;
+		width: 70px !important;
+		height: 70px !important;
+		font-family: FontAwesome !important;
+		text-align: center !important;
+		background-color: #fff !important;
+	
+		font-size: 36px;
+		color: black;
+		padding-top: 24px;
+}
 
 
+@media (min-width: 320px) {
+	div.containerDisabled.about{
+    padding: 0 5% 0 5% !important;
 
+	}
+	#about {
+		padding-top: 0px;
+	}
 
+	
+}
+@media (min-width: 1024px) {
+	#about {
+		padding-top: 70px;
+	}
+	div.containerDisabled.about{
+    padding: 0 5% 0 5% !important;
+
+	}
+}
 
 
 /*-----------------------------------------------------------------------------------*/

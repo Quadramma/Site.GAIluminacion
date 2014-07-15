@@ -95,7 +95,7 @@
 <html ng-app="GApp" ng-controller="GaController">
 <head>
     <meta charset="utf-8">
-    <title>GA | Iluminacion Lamparas</title>
+    <title>GA | Iluminacion</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="GA iluminacion es una empresa dedicada a la comercialización de luminarias de diseño exclusivo y de calidad internacional. Importadores de lámparas y arañas de Cristal de Bohemia en Argentina y Uruguay. Importador de objetos de decoración, cuadros pintados a mano y esculturas. Diseño de iluminación para proyectos residenciales y profesionales. Asesoramientos en domicilio. Fabricación de modelos a medida, bajo requerimientos especiales. Muebles, mesas bajas de costado y consolas.">
     <meta name="keywords" content="ga iluminacion empresa lamparas">

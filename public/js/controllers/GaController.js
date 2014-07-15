@@ -203,6 +203,10 @@ angular.module('GApp.controllers', ["ngResource"])
                 $(this).attr("src", $path + homeSlide3);
             }
         });
+        
+
+        //adjust slider control
+        $(".flex-direction-nav.container").detach().prependTo("#carousel");
     }
 
 
