@@ -31,8 +31,9 @@
 			<p>GA Iluminación esta dedicada al diseño, producción e importación de luminarias exclusivas. Todos los productos son el fruto de inspiración y exploración de culturas y lugares recorridos durante largos años para descubrir lo distinto alrededor del mundo.</p>
 			
 			<ul class="social">
-				<li><a href="https://twitter.com/GAiluminacion" target="_blank"><i class="fa fa-twitter"></i></a></li>
-				<li><a href="https://www.facebook.com/ga.iluminacion.3" target="_blank" ><i class="fa fa-facebook"></i></a></li>
+				<li><a href="https://twitter.com/GAiluminacion" 		target="_blank"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="https://www.facebook.com/ga.iluminacion.3" target="_blank"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="http://instagram.com/gailuminacion" 		target="_blank"><i class="fa fa-instagram"></i></a></li>
 				<!--
 				<li><a href="javascript:void(0);" ><i class="fa fa-google-plus"></i></a></li>
 				<li><a href="javascript:void(0);" ><i class="fa fa-pinterest-square"></i></a></li>
