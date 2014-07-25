@@ -19,7 +19,7 @@
    <div class="newsletter list form container" ng-controller="NewsletterList">
       <p>Material exclusivo</p>
       <ul class="newsletter list">
-        <li ng-repeat="pdf in pdfList">
+        <li ng-repeat="pdf in pdfList" class="newsletter-li">
             <a href="backend/api/uploads/newsletter/{{pdf}}" target="_blank">
               {{pdf}}
             </a>
@@ -50,7 +50,7 @@ para acceder a nuestro material especial.</p>
    
 
 
-    O
+    
     <br>
     <br>
     <p>Subscripcion</p>
