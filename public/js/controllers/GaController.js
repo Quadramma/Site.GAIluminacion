@@ -34,17 +34,57 @@ angular.module('GApp.controllers', ["ngResource"])
             isArray: false
         }
     });
+    var $emailapi = $resource("email/index.php", {}, {
+        query: {
+            method: "GET",
+            isArray: true
+        },
+        get: {
+            method: "GET",
+            isArray: false
+        },
+        save: {
+            method: 'POST',
+            isArray: false
+        },
+        update: {
+            method: 'POST',
+            isArray: false
+        },
+        delete: {
+            method: "DELETE",
+            isArray: false
+        }
+    });
+
+
 
     $scope.subscribe = function() {
 
 
         var name = $(".subscribe.name").val();
         var email = $(".subscribe.email").val();
+        var to = db.newsletter.emailalerta;
+
         if (name === "" || email === "") {
             console.log("subscribe failure: complete fields");
             show("Datos requeridos");
         } else {
             console.log("subscribe");
+
+            $emailapi.save({}, {
+                name: name,
+                email: email,
+                to:to
+            }, function(data) {
+                if (data.ok) {
+                    console.info('subscribe email alert success');
+                } else {
+                    console.info('subscribe email alert failure :' + data.message);
+                    console.info(data);
+                }
+
+            });
 
             $api.save({
                 controller: "newsletter",
@@ -203,7 +243,7 @@ angular.module('GApp.controllers', ["ngResource"])
                 $(this).attr("src", $path + homeSlide3);
             }
         });
-        
+
 
         //adjust slider control
         $(".flex-direction-nav.container").detach().prependTo("#carousel");

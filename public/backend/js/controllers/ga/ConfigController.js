@@ -76,11 +76,12 @@ function ConfigNewsletterController($scope, $state, AppConfig, $resource, $timeo
             controller: "file",
             action: "savenewsletterdata"
         }, {
-            password: $scope.password
+            password: $scope.password,
+            emailalerta: $scope.emailalerta
         }, function(data) {
             console.info('updatepass success');
 
-            $scope.passwordSaveMessage = "Password actualizada";
+            $scope.passwordSaveMessage = "Cambios guardados";
             setTimeout(function() {
                 $scope.passwordSaveMessage = "";
                 console.info('updatepass success timeout over');
@@ -143,6 +144,7 @@ function ConfigNewsletterController($scope, $state, AppConfig, $resource, $timeo
     }, function(res) {
         console.info(res.data);
         $scope.password = res.data.password;
+        $scope.emailalerta = res.data.emailalerta;
     });
 
 }

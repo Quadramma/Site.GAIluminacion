@@ -87,6 +87,7 @@ Flight::route('POST /file/savenewsletterdata', function(){
     //
     $collection =  array(
         "password"=>$data["password"]
+        ,"emailalerta"=>$data["emailalerta"]
       );
     file_put_contents($my_file, json_encode($collection));
     //

@@ -1,10 +1,14 @@
 <div class="ui form">
     <div class="field">
+        <label>Email de alerta</label>
+        <input type="text" ng-model="emailalerta" placeholder="Ingrese email de alerta" />
+    </div>
+    <div class="field">
         <label>Password newsletter</label>
         <input type="text" ng-model="password" placeholder="Ingrese Password" />
     </div>
 </div>
-<a ng-click="updatepass()" class="ui small black button">Actualizar password</a>
+<a ng-click="updatepass()" class="ui small black button">Guardar cambios</a>
 <label>{{passwordSaveMessage}}</label>
 
 
